@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body th:fragment="bar">
+<div class="preloader">
+    <div class="preloader-img">
+        <span class="loading-animation animate-flicker"><img src="/assets/images/loading.gif" alt="loading" /></span>
+    </div>
+</div>
+<div id="top-bar" class="hidden-xs">
+    <div class="container">
+        <div class="col-sm-4">
+            <ul class="header-social list-inline">
+                <li><a class="home" th:href="@{'/'}"><i class="fa fa-home"></i><B> Home </B></a></li>
+            </ul>
+        </div>
+        <div class="col-sm-8">
+            <ul class="secondary-menu list-inline pull-right">
+                <li><B><a th:href="@{'/login'}">登 录</a></B></li>
+                <li><B><a th:href="@{'/register'}">注 册</a></B></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="navbar nav-wrapper smoothie" >
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center mb30">
+                <a class="logo" href="index.html"><img alt="" class="logo img-responsive" src="/assets/images/logo-light.png"></a>
+            </div>
+            <div class="col-sm-12 text-center">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-center">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a th:href="@{'/love-wall'}">表白墙</a></li>
+                                <li><a th:href="@{'/complaint-wall'}">吐槽墙</a></li>
+                                <li><a th:href="@{'/copy'}">Copy</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Portfolio <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a th:href="@{'/portfolio-grid'}">失物认领</a></li>
+                                <li><a th:href="@{'/portfolio-grid-fullwidth'}">失物认领</a></li>
+                                <li><a th:href="@{'/single-portfolio'}">Single Portfolio</a></li>
+                                <li><a th:href="@{'/single-portfolio-video'}">Single Portfolio Video</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">News <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a th:href="@{'/news-list'}">News List</a></li>
+                                <li><a th:href="@{'/news-grid'}">News Grid</a></li>
+                                <li><a th:href="@{'/news-tiles'}">News Tiles</a></li>
+                                <li><a th:href="@{'/single-post'}">Single Post</a></li>
+                                <li><a th:href="@{'/single-post-video'}">Single Post Video</a></li>
+                                <li><a th:href="@{'/single-post-no-sidebar'}">Single Post No Sidebar</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a th:href="@{'/login'}">Login</a></li>
+                                <li><a th:href="@{'/register'}">Register</a></li>
+                                <li><a th:href="@{'/agency'}">Agency</a></li>
+                                <li><a th:href="@{'/404'}">404</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
+                            <ul class="dropdown-menu">
+                                <form class="form-inline">
+                                    <button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button>
+                                    <input type="text" class="form-control pull-left" placeholder="Search">
+                                </form>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>

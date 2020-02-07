@@ -29,19 +29,8 @@ public class IndexController {
         return "index-copy";
     }
 
-    @GetMapping(value = "/about-us")
-    public String aboutUs() {
-        return "about-us";
-    }
-
-    @GetMapping(value = "/contact-us")
-    public String contactUs() {
-        return "contact-us";
-    }
-
     @GetMapping(value = "/404")
     public String notFound() {
         return "404";
     }
-
 }

@@ -18,7 +18,7 @@
     <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicon/apple-touch-icon-152x152.png"/>
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon-180x180.png"/>
 
-    <title>Home</title>
+    <title>Function Wall</title>
     <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -88,15 +88,10 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">
                                 <a th:href="@{'/'}" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">表白墙</span></a>
-                            </li>
-                            <li class="dropdown">
-                                <a th:href="@{'/'}" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">Home <span class="caret"></span></a>
+                                   aria-haspopup="true" aria-expanded="false">Function <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a th:href="@{'/love-wall'}">表白墙</a></li>
-                                    <li><a th:href="@{'/masonry'}">Masonry</a></li>
-                                    <li><a th:href="@{'/agency'}">Agency</a></li>
+                                    <li><a th:href="@{'/complaint-wall'}">吐槽墙</a></li>
                                     <li><a th:href="@{'/copy'}">Copy</a></li>
                                 </ul>
                             </li>
@@ -104,8 +99,8 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                    aria-haspopup="true" aria-expanded="false">Portfolio <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a th:href="@{'/portfolio-grid'}">Portfolio Grid</a></li>
-                                    <li><a th:href="@{'/portfolio-grid-fullwidth'}">Portfolio Grid Fullwidth</a></li>
+                                    <li><a th:href="@{'/portfolio-grid'}">失物认领</a></li>
+                                    <li><a th:href="@{'/portfolio-grid-fullwidth'}">失物认领</a></li>
                                     <li><a th:href="@{'/single-portfolio'}">Single Portfolio</a></li>
                                     <li><a th:href="@{'/single-portfolio-video'}">Single Portfolio Video</a></li>
                                 </ul>
@@ -128,6 +123,7 @@
                                 <ul class="dropdown-menu">
                                     <li><a th:href="@{'/login'}">Login</a></li>
                                     <li><a th:href="@{'/register'}">Register</a></li>
+                                    <li><a th:href="@{'/agency'}">Agency</a></li>
                                     <li><a th:href="@{'/404'}">404</a></li>
                                 </ul>
                             </li>
