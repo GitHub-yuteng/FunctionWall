@@ -4,6 +4,8 @@ import com.functionwall.constant.ConstantUserField;
 import com.functionwall.dao.UserMapper;
 import com.functionwall.pojo.mould.User;
 import com.functionwall.service.UserService;
+import org.apache.shiro.crypto.hash.Md5Hash;
+import org.apache.shiro.crypto.hash.SimpleHash;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,14 +57,16 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public void save(String realname, String account, String password) {
+
         User user = new User();
         user.setRealname(realname);
         user.setAccount(account);
-        user.setPassword(password);
         user.setLevel("");
         user.setSex(1);
         user.setCreatedDate(new Date());
         user.setUsername(ConstantUserField.randomName[(int) (Math.random() * ConstantUserField.GetRandomNameLength + 1)]);
+        String md5EncodePassword = new Md5Hash(password, "", 2).toHex();
+        user.setPassword(md5EncodePassword);
         getUserDao().save(user);
     }
 }
