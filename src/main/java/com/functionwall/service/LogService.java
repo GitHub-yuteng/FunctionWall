@@ -1,6 +1,6 @@
 package com.functionwall.service;
 
-import com.functionwall.pojo.mould.LogDomain;
+import com.functionwall.pojo.model.LogDomain;
 import com.github.pagehelper.PageInfo;
 
 public interface LogService {

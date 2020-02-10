@@ -56,7 +56,7 @@ public class ShiroConfig {
     public HashedCredentialsMatcher hashedCredentialsMatcher() {
         HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
         hashedCredentialsMatcher.setHashAlgorithmName("MD5");// 散列算法, 与注册时使用的散列算法相同
-        hashedCredentialsMatcher.setHashIterations(2);// 散列次数, 与注册时使用的散列次数相同
+        hashedCredentialsMatcher.setHashIterations(1024);// 散列次数, 与注册时使用的散列次数相同
         hashedCredentialsMatcher.setStoredCredentialsHexEncoded(true);
         return hashedCredentialsMatcher;
     }

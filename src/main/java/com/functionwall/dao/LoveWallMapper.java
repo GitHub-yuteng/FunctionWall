@@ -1,9 +1,7 @@
 package com.functionwall.dao;
 
-import com.functionwall.pojo.mould.Topic;
-import com.functionwall.pojo.mould.User;
+import com.functionwall.pojo.model.Topic;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface LoveWallMapper {

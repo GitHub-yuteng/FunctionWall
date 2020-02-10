@@ -1,6 +1,6 @@
 package com.functionwall.dao;
 
-import com.functionwall.pojo.mould.Topic;
+import com.functionwall.pojo.model.Topic;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

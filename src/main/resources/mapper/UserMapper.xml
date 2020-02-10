@@ -6,7 +6,7 @@
 	<sql id="insertFields">username,account,password,realname,level,sex,created_date</sql>
 	<sql id="selectFields">id,username,account,password,realname,level,sex,created_date</sql>
 
-	<insert id="save" parameterType="com.functionwall.pojo.mould.User" useGeneratedKeys="true" keyProperty="id">
+	<insert id="save" parameterType="com.functionwall.pojo.model.User" useGeneratedKeys="true" keyProperty="id">
 		  INSERT INTO
 		  <include refid="tablename"/>
 		  (
@@ -15,7 +15,7 @@
 		  VALUE (#{username},#{account},#{password},#{realname},#{level},#{sex},#{createdDate})
 	</insert>
 
-	<select id="getUserInfoByAccountAndPassword" resultType="com.functionwall.pojo.mould.User">
+	<select id="getUserInfoByAccountAndPassword" resultType="com.functionwall.pojo.model.User">
         SELECT
         <include refid="selectFields"/>
         FROM
@@ -26,7 +26,7 @@
         password = #{password}
 	</select>
 
-	<select id="getUserByUsername" resultType="com.functionwall.pojo.mould.User" parameterType="string">
+	<select id="getUserByUsername" resultType="com.functionwall.pojo.model.User" parameterType="string">
 		SELECT
 		<include refid="selectFields"/>
 		FROM
@@ -34,7 +34,7 @@
 		WHERE username = #{username}
 	</select>
 
-	<select id="getUserByAccount" resultType="com.functionwall.pojo.mould.User">
+	<select id="getUserByAccount" resultType="com.functionwall.pojo.model.User">
 		SELECT
 		<include refid="selectFields"/>
 		FROM
@@ -42,7 +42,7 @@
 		WHERE account = #{account}
 	</select>
 
-	<select id="getUserById" resultType="com.functionwall.pojo.mould.User"></select>
+	<select id="getUserById" resultType="com.functionwall.pojo.model.User"></select>
 
 
 </mapper>

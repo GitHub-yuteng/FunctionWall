@@ -1,6 +1,6 @@
 package com.functionwall.dao;
 
-import com.functionwall.pojo.mould.User;
+import com.functionwall.pojo.model.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

@@ -1,6 +1,6 @@
 package com.functionwall.service;
 
-import com.functionwall.pojo.mould.User;
+import com.functionwall.pojo.model.User;
 
 /**
  * @author Yu

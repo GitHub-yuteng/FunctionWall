@@ -1,9 +1,10 @@
 package com.functionwall.config;
 
 import com.functionwall.dao.UserMapper;
-import com.functionwall.pojo.mould.User;
+import com.functionwall.pojo.model.User;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,9 @@ public class UserRealm extends AuthorizingRealm {
     //授权
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
+
+        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
+
         return null;
     }
 

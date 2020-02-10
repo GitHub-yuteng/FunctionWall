@@ -1,9 +1,10 @@
-package com.functionwall.pojo.mould;
+package com.functionwall.pojo.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -12,7 +13,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Topic {
+public class Topic implements Serializable {
 
     private Long id;
     private String title;//帖子标题

@@ -1,6 +1,6 @@
 package com.functionwall.dao;
 
-import com.functionwall.pojo.mould.LogDomain;
+import com.functionwall.pojo.model.LogDomain;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

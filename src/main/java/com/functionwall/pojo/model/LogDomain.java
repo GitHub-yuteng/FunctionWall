@@ -1,4 +1,4 @@
-package com.functionwall.pojo.mould;
+package com.functionwall.pojo.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

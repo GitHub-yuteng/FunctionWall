@@ -3,7 +3,7 @@ package com.functionwall.service.serviceImpl;
 import com.functionwall.dao.LogMapper;
 import com.functionwall.exception.FunctionWallErrorCode;
 import com.functionwall.exception.FunctionWallRuntimeException;
-import com.functionwall.pojo.mould.LogDomain;
+import com.functionwall.pojo.model.LogDomain;
 import com.functionwall.service.LogService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;

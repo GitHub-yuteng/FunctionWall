@@ -4,7 +4,7 @@ import com.functionwall.constant.ConstantField;
 import com.functionwall.dao.ComplaintWallMapper;
 import com.functionwall.dao.LoveWallMapper;
 import com.functionwall.dao.UserMapper;
-import com.functionwall.pojo.mould.Topic;
+import com.functionwall.pojo.model.Topic;
 import com.functionwall.service.TopicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
