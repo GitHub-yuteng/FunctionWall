@@ -33,10 +33,10 @@ public class UserRealm extends AuthorizingRealm {
         String account = usernamePasswordToken.getUsername();
         User user = Optional.ofNullable(getUserMapper().getUserByAccount(account)).orElse(null);
         //判断用户帐号是否存在
-        if (null == user || !account.equals(user.getAccount())) {
+        if (null == user) {
             throw new UnknownAccountException();
         }
         //密码认证 shiro 接管
-        return new SimpleAuthenticationInfo(user.getAccount(), user.getPassword(), "");
+        return new SimpleAuthenticationInfo(user, user.getPassword(),"");
     }
 }
