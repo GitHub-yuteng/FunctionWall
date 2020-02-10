@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping(value = "/topic")
 public class TopicController {
+
     @Autowired
     private TopicService topicService;
 
@@ -26,6 +27,15 @@ public class TopicController {
         return topicService;
     }
 
+    /**
+     * 根据类型添加帖子
+     * @param title
+     * @param category
+     * @param content
+     * @param userId
+     * @param request
+     * @return
+     */
     @PostMapping(value = "/add")
     public View addTopic(@RequestParam String title,
                          @RequestParam String category,
@@ -43,6 +53,11 @@ public class TopicController {
             return new RedirectView(contextPath + "/404");
         }
     }
+
+//    @GetMapping(value = "/queryList")
+//    public APIResponse<Topic> queryListPageForTopic(PageBean pageBean){
+//        getTopicService().queryListPageForTopic();
+//    }
 
     @GetMapping(value = "/post")
     public String topic() {

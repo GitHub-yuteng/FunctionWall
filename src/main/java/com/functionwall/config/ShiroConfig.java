@@ -48,7 +48,7 @@ public class ShiroConfig {
         UserRealm userRealm = new UserRealm();
         //设置加密算法
         userRealm.setCredentialsMatcher(hashedCredentialsMatcher());
-        return new UserRealm();
+        return userRealm;
     }
 
 
@@ -57,6 +57,7 @@ public class ShiroConfig {
         HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
         hashedCredentialsMatcher.setHashAlgorithmName("MD5");// 散列算法, 与注册时使用的散列算法相同
         hashedCredentialsMatcher.setHashIterations(2);// 散列次数, 与注册时使用的散列次数相同
+        hashedCredentialsMatcher.setStoredCredentialsHexEncoded(true);
         return hashedCredentialsMatcher;
     }
 
