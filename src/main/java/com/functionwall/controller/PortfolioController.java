@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class PortfolioController {
 
-    @GetMapping(value = "/portfolio-grid")
-    public String portfolioGrid() {
-        return "portfolio-grid";
+    @GetMapping(value = "/lost-found")
+    public String lostFound() {
+        return "lost-found";
     }
 
-    @GetMapping(value = "/portfolio-grid-fullwidth")
-    public String portfolioGridFullwidth() {
-        return "portfolio-grid-fullwidth";
+    @GetMapping(value = "/lost-found-fullwidth")
+    public String lostFoundFullwidth() {
+        return "lost-found-fullwidth";
     }
 
     @GetMapping(value = "/single-portfolio")

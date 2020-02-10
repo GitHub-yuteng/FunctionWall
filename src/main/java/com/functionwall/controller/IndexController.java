@@ -1,5 +1,6 @@
 package com.functionwall.controller;
 
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -22,6 +23,11 @@ public class IndexController {
     @GetMapping(value = "/agency")
     public String indexAgency() {
         return "index-agency";
+    }
+
+    @GetMapping(value = "/my-info")
+    public String aboutUs() {
+        return "my-info";
     }
 
     @GetMapping(value = "/copy")

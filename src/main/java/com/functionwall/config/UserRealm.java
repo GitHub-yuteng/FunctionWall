@@ -1,6 +1,6 @@
 package com.functionwall.config;
 
-import com.functionwall.dao.UserDao;
+import com.functionwall.dao.UserMapper;
 import com.functionwall.pojo.mould.User;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -13,10 +13,10 @@ import java.util.Optional;
 public class UserRealm extends AuthorizingRealm {
 
     @Autowired
-    private UserDao userDao;
+    private UserMapper userMapper;
 
-    protected UserDao getUserDao() {
-        return userDao;
+    protected UserMapper getUserMapper() {
+        return userMapper;
     }
 
     //授权
@@ -31,7 +31,7 @@ public class UserRealm extends AuthorizingRealm {
 
         UsernamePasswordToken usernamePasswordToken = (UsernamePasswordToken) authenticationToken;
         String account = usernamePasswordToken.getUsername();
-        User user = Optional.ofNullable(getUserDao().getUserByAccount(account)).orElse(null);
+        User user = Optional.ofNullable(getUserMapper().getUserByAccount(account)).orElse(null);
         //判断用户帐号是否存在
         if (null == user || !account.equals(user.getAccount())) {
             throw new UnknownAccountException();

@@ -1,6 +1,6 @@
 package com.functionwall.service;
 
-import org.springframework.stereotype.Service;
+import com.functionwall.pojo.mould.User;
 
 /**
  * @author Yu
@@ -8,6 +8,10 @@ import org.springframework.stereotype.Service;
 
 public interface UserService {
 
+    User getUserByUsername(String username);
 
+    User getUserByAccount(String account);
+
+    void save(String realname, String account, String password);
 
 }

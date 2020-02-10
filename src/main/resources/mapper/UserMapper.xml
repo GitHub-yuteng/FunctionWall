@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.functionwall.dao.UserMapper">
+	<sql id="tablename">user</sql>
+	<sql id="insertFields">username,account,password,realname,level,sex,created_date</sql>
+	<sql id="selectFields">id,username,account,password,realname,level,sex,created_date</sql>
+
+	<insert id="save" parameterType="com.functionwall.pojo.mould.User" useGeneratedKeys="true" keyProperty="id">
+		  INSERT INTO
+		  <include refid="tablename"/>
+		  (
+		  <include refid="insertFields"/>
+		  )
+		  VALUE (#{username},#{account},#{password},#{realname},#{level},#{sex},#{createdDate})
+	</insert>
+
+	<select id="getUserInfoByAccountAndPassword" resultType="com.functionwall.pojo.mould.User">
+        SELECT
+        <include refid="selectFields"/>
+        FROM
+        <include refid="tablename" />
+        WHERE
+        account = #{account}
+        AND
+        password = #{password}
+	</select>
+
+	<select id="getUserByUsername" resultType="com.functionwall.pojo.mould.User" parameterType="string">
+		SELECT
+		<include refid="selectFields"/>
+		FROM
+		<include refid="tablename" />
+		WHERE username = #{username}
+	</select>
+
+	<select id="getUserByAccount" resultType="com.functionwall.pojo.mould.User">
+		SELECT
+		<include refid="selectFields"/>
+		FROM
+		<include refid="tablename" />
+		WHERE account = #{account}
+	</select>
+
+	<select id="getUserById" resultType="com.functionwall.pojo.mould.User"></select>
+
+
+</mapper>
