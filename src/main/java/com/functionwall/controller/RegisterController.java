@@ -1,6 +1,6 @@
 package com.functionwall.controller;
 
-import com.functionwall.pojo.mould.User;
+import com.functionwall.pojo.model.User;
 import com.functionwall.pojo.vo.APIResponse;
 import com.functionwall.service.UserService;
 import org.apache.commons.lang3.StringUtils;

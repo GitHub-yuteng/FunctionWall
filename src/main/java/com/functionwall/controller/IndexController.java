@@ -30,9 +30,9 @@ public class IndexController {
         return "my-info";
     }
 
-    @GetMapping(value = "/copy")
-    public String indexCopy() {
-        return "index-copy";
+    @GetMapping(value = "/special-price")
+    public String specialPrice() {
+        return "special-price";
     }
 
     @GetMapping(value = "/404")

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @author Yu
  */
 @Controller
-public class PortfolioController {
+public class LostFoundController {
 
     @GetMapping(value = "/lost-found")
     public String lostFound() {
@@ -17,11 +17,6 @@ public class PortfolioController {
     @GetMapping(value = "/lost-found-fullwidth")
     public String lostFoundFullwidth() {
         return "lost-found-fullwidth";
-    }
-
-    @GetMapping(value = "/single-portfolio")
-    public String singlePortfolio() {
-        return "single-portfolio";
     }
 
     @GetMapping(value = "/single-portfolio-video")
