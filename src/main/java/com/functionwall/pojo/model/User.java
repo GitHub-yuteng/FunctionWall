@@ -1,5 +1,6 @@
 package com.functionwall.pojo.model;
 
+import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,12 +11,13 @@ import java.util.Date;
 /**
  * @author Yu
  */
+@ApiModel("用户实体")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class User implements Serializable {
     private Long id; //用户ID
-    private String username; //用户名
+    private String username; //网名
     private String account; //用户账号
     private String password;//用户密码
     private String realname; //真实姓名

@@ -2,6 +2,7 @@ package com.functionwall.controller;
 
 import com.functionwall.pojo.model.User;
 import com.functionwall.service.UserService;
+import io.swagger.annotations.Api;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -23,6 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * @author Yu
  */
+@Api(tags = "登录相关")
 @Controller
 public class LoginController {
 

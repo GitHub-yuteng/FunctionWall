@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 /**
  * @author Yu
  */
-@Api("用户相关")
+@Api(tags = "用户相关")
 @Controller
 @RequestMapping(value = "/user")
 public class UserController {
@@ -37,11 +37,25 @@ public class UserController {
     /**
      * 修改密码
      */
+    @ApiOperation("修改密码")
     @PostMapping(value = "/password")
     @ResponseBody
     public APIResponse updatePassword(@RequestParam String oldPassword, @RequestParam String password,
                                       HttpServletRequest request, HttpSession session) {
 
         return new APIResponse();
+    }
+
+    /**
+     * 发送邮件
+     *
+     * @param email
+     * @return
+     */
+    @PostMapping(value = "/email")
+    public String addTopic(@RequestParam String email, @RequestParam String userId,
+                           @RequestParam String realname) {
+        getUserService().sendMail(email, userId, realname);
+        return "index";
     }
 }

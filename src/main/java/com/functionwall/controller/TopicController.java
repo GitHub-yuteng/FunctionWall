@@ -2,6 +2,7 @@ package com.functionwall.controller;
 
 import com.functionwall.constant.ConstantField;
 import com.functionwall.service.TopicService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * @author Yu
  */
+@Api(tags = "功能墙")
 @Controller
 @RequestMapping(value = "/topic")
 public class TopicController {

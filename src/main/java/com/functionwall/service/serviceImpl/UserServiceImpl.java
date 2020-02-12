@@ -8,6 +8,9 @@ import org.apache.shiro.crypto.hash.Md5Hash;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -22,6 +25,13 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userDao;
+
+    @Autowired
+    public JavaMailSenderImpl mailSender;
+
+    protected JavaMailSenderImpl getMailSender() {
+        return mailSender;
+    }
 
     protected UserMapper getUserDao() {
         return userDao;
@@ -67,6 +77,20 @@ public class UserServiceImpl implements UserService {
         String md5EncodePassword = new Md5Hash(password, "", 1024).toHex();
         user.setPassword(md5EncodePassword);
         getUserDao().save(user);
+    }
+
+    @Override
+    @Async
+    public void sendMail(String email, String userId, String realname) {
+        SimpleMailMessage mailMessage = new SimpleMailMessage();
+
+        mailMessage.setSubject("Function Wall Mail");
+        mailMessage.setText("用户ID：[" + userId + "]，" + "用户姓名：[" + realname + "] ==> " + email);
+        mailMessage.setTo("995689575@qq.com");
+        mailMessage.setFrom("995689575@qq.com");
+
+        mailSender.send(mailMessage);
+        System.out.println("发送！");
     }
 }
 

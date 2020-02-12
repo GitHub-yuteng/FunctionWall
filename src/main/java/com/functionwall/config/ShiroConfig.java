@@ -1,5 +1,6 @@
 package com.functionwall.config;
 
+import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
@@ -28,7 +29,7 @@ public class ShiroConfig {
 
         shiroFilterFactoryBean.setLoginUrl("/login");
         shiroFilterFactoryBean.setSuccessUrl("/index");
-        shiroFilterFactoryBean.setUnauthorizedUrl("/404");
+        shiroFilterFactoryBean.setUnauthorizedUrl("/404");//未授权页面
 
         return shiroFilterFactoryBean;
     }
@@ -51,6 +52,11 @@ public class ShiroConfig {
         return userRealm;
     }
 
+    //整合ShiroDialect thymeleaf-extras-shiro
+    @Bean
+    public ShiroDialect getShiroDialect() {
+        return new ShiroDialect();
+    }
 
     @Bean
     public HashedCredentialsMatcher hashedCredentialsMatcher() {
@@ -60,6 +66,7 @@ public class ShiroConfig {
         hashedCredentialsMatcher.setStoredCredentialsHexEncoded(true);
         return hashedCredentialsMatcher;
     }
+
 
     public Map<String, String> loadShiroFilterChainDefinitionMap() {
 
@@ -74,9 +81,20 @@ public class ShiroConfig {
         Map<String, String> filterMap = new LinkedHashMap<>();
         filterMap.put("/", "anon");
         filterMap.put("/index", "anon");
-        filterMap.put("/love-wall", "anon");
+        filterMap.put("/topic/love-wall", "anon");
+        filterMap.put("/topic/complaint-wall", "anon");
+        filterMap.put("/campus-activities", "anon");
+        filterMap.put("/special-price", "anon");
+        filterMap.put("/lost-found", "anon");
+
+        filterMap.put("/swagger-ui.html", "anon");
+
         filterMap.put("/login", "anon");
         filterMap.put("/register", "anon");
+
+        /**
+         * 静态资源
+         */
         filterMap.put("/assets/**", "anon");
         filterMap.put("/style.css", "anon");
 
