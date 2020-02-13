@@ -38,8 +38,8 @@ public class TopicController {
      * @param request
      * @return
      */
-    @PostMapping(value = "/add")
-    public View addTopic(@RequestParam String title,
+    @PostMapping(value = "/content")
+    public View saveTopic(@RequestParam String title,
                          @RequestParam String category,
                          @RequestParam String content,
                          @RequestParam String userId,
@@ -56,16 +56,11 @@ public class TopicController {
         }
     }
 
-//    @GetMapping(value = "/queryList")
-//    public APIResponse<Topic> queryListPageForTopic(PageBean pageBean){
-//        getTopicService().queryListPageForTopic();
-//    }
 
     @GetMapping(value = "/post")
     public String topic() {
         return "post-topic";
     }
-
 
     @GetMapping(value = "/complaint-wall")
     public String complaintWall() {

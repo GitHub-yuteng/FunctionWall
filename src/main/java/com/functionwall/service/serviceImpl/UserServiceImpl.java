@@ -92,6 +92,14 @@ public class UserServiceImpl implements UserService {
         mailSender.send(mailMessage);
         System.out.println("发送！");
     }
+
+    /**
+     * 根据用户ID更新用户网名
+     */
+    @Override
+    public void updateUsernameById(String userId, String username) {
+        getUserDao().updateUsernameById(userId,username);
+    }
 }
 
 

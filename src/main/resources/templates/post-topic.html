@@ -11,7 +11,7 @@
 
     <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico" type="image/x-icon"/>
 
-    <title>Agency</title>
+    <title>Post Topic</title>
     <link href="/assets/js/jquery.min.js" rel="stylesheet">
     <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/bootstrap/js/bootstrap.min.js" rel="stylesheet">
@@ -53,7 +53,7 @@
                 <div class="row mb90">
                     <div class="row">
                         <div class="col-sm-8">
-                            <form method="post" th:action="@{/topic/add}" class="main-contact-form">
+                            <form method="post" th:action="@{/topic/content}" class="main-contact-form">
                                 <div class="form-group">
                                     <label>标题</label>
                                     <input type="text" class="form-control" id="title" name="title" placeholder="标题">
@@ -62,6 +62,10 @@
                                     <label>分类</label>
                                     <input type="text" class="form-control" id="category" name="category" placeholder="表白墙/吐槽墙">
                                 </div>
+                                <!--<div class="form-group">-->
+                                    <!--<label>图片上传</label>-->
+                                    <!--<input type="file" class="form-control" id="image" name="image" placeholder="表白墙/吐槽墙">-->
+                                <!--</div>-->
                                 <div class="form-group">
                                     <label>内容</label>
                                     <textarea class="form-control" id="content" name="content" placeholder="内容"></textarea>

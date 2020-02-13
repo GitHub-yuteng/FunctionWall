@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author Yu
@@ -54,5 +55,15 @@ public class TopicServiceImpl implements TopicService {
         if (category.equals(ConstantField.COMPLAINTWALL)) {
             getComplaintWallMapper().save(topic);
         }
+    }
+
+    @Override
+    public List<Topic> queryListForLoveWallTopic() {
+        return null;
+    }
+
+    @Override
+    public List<Topic> queryListForComplaintWallTopic() {
+        return null;
     }
 }

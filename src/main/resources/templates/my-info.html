@@ -31,49 +31,6 @@
 
 <body class="top-navigation pushy-right-side">
 
-<nav class="pushy pushy-right">
-    <ul class="list-unstyled">
-        <li><a class="logo" href="#"><img alt="" class="logo img-responsive" src="/assets/images/logo.png"></a></li>
-        <li class="pushy-submenu">
-            <a class="submenu-link" href="#">Home <i class="fa fa-angle-down"></i></a>
-            <ul>
-                <li><a th:href="@{'/magazine'}">Magazine</a></li>
-                <li><a th:href="@{'/masonry'}">Masonry</a></li>
-                <li><a th:href="@{'/agency'}">Agency</a></li>
-                <li><a th:href="@{'/copy'}">Copy</a></li>
-            </ul>
-        </li>
-        <li class="pushy-submenu">
-            <a class="submenu-link" href="#">Works <i class="fa fa-angle-down"></i></a>
-            <ul>
-                <li><a th:href="@{'/portfolio-grid'}">Portfolio Grid</a></li>
-                <li><a th:href="@{'/portfolio-grid-fullwidth'}">Portfolio Grid Fullwidth</a></li>
-                <li><a th:href="@{'/single-portfolio'}">Single Portfolio</a></li>
-                <li><a th:href="@{'/single-portfolio-video'}">Single Portfolio Video</a></li>
-            </ul>
-        </li>
-        <li class="pushy-submenu">
-            <a class="submenu-link" href="#">News <i class="fa fa-angle-down"></i></a>
-            <ul>
-                <li><a th:href="@{'/news-list'}">News List</a></li>
-                <li><a th:href="@{'/news-grid'}">News Grid</a></li>
-                <li><a th:href="@{'/news-tiles'}">News Tiles</a></li>
-                <li><a th:href="@{'/single-post'}">Single Post</a></li>
-                <li><a th:href="@{'/single-post-video'}">Single Post Video</a></li>
-                <li><a th:href="@{'/single-post-no-sidebar'}">Single Post No Sidebar</a></li>
-            </ul>
-        </li>
-        <li class="pushy-submenu">
-            <a class="submenu-link" href="#">Pages <i class="fa fa-angle-down"></i></a>
-            <ul>
-                <li><a th:href="@{'/about-us'}">About Us</a></li>
-                <li><a th:href="@{'/contact-us'}">Contact Us</a></li>
-                <li><a th:href="@{'/404'}">404</a></li>
-            </ul>
-        </li>
-    </ul>
-</nav>
-
 <!-- Site Overlay -->
 <div class="site-overlay">
 </div>
@@ -93,7 +50,7 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div id="my-info" class="col-sm-4">
                         <p class="form-control col-md-4 mb20">
                             <strong>网名：</strong><span th:text="${session.user.username}"/>
                         </p>
@@ -117,17 +74,20 @@
                                 <div class="panel-heading panel-open smoothie" role="tab" id="headingOne">
                                     <h4 class="panel-title">
                                         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true"
-                                           aria-controls="collapseOne">Summer Special</a>
+                                           aria-controls="collapseOne">更改网名</a>
                                     </h4>
                                 </div>
                                 <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                                     <div class="panel-body">
-                                        <p>
-                                            Phosfluorescently e-enable multidisciplinary architectures without team driven services. Credibly innovate
-                                            high-payoff alignments before resource sucking metrics. Uniquely repurpose granular synergy after tactical
-                                            internal or "organic" sources. Conveniently fabricate go forward niches vis-a-vis top-line partnerships.
-                                            Progressively brand 24/7 deliverables whereas diverse total linkage.
-                                        </p>
+                                        <form th:action="@{/user/username}" method="post">
+                                            <input type="hidden" name="_method" value="put"/>
+                                            <div class="input-group">
+                                                <input class="form-control" type="text" name="username" placeholder="请输入更改的网名"/>
+                                                <input type="hidden" name="userId" th:value="${session.user.id}"/>
+                                                <span class="input-group-btn">
+                                            <input class="btn btn-primary mt30 pull-right" type="submit" value="✓"/></span>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -135,19 +95,22 @@
                                 <div class="panel-heading smoothie" role="tab" id="headingTwo">
                                     <h4 class="panel-title">
                                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"
-                                           aria-expanded="false" aria-controls="collapseTwo">Outdoor Persuits</a>
+                                           aria-expanded="false" aria-controls="collapseTwo">更改密码</a>
                                     </h4>
                                 </div>
                                 <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                     <div class="panel-body">
-                                        <p>
-                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-                                            moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                                            Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                                            shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-                                            proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
-                                            aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                        </p>
+                                        <form th:action="@{/user/password}" method="post">
+                                            <input type="hidden" name="_method" value="put"/>
+                                            <div class="input-group">
+                                                <input class="form-control" type="text" name="oldPassword" placeholder="旧密码"/>
+                                                <input class="form-control" type="text" name="newPassword" placeholder="新密码"/>
+                                                <input type="hidden" name="userId" th:value="${session.user.id}"/>
+                                                <span class="input-group-btn">
+                                                    <input class="btn btn-primary mt30 pull-right" type="submit" value="✓"/>
+                                                </span>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -161,12 +124,7 @@
                                 <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                                     <div class="panel-body">
                                         <p>
-                                            Enthusiastically disseminate bleeding-edge ROI rather than accurate results. Collaboratively scale
-                                            interoperable experiences for dynamic services. Appropriately embrace web-enabled potentialities rather
-                                            than proactive human capital. Distinctively mesh resource-leveling e-commerce without B2B applications.
-                                            Rapidiously iterate resource sucking intellectual capital vis-a-vis alternative experiences. Dramatically
-                                            exploit unique communities rather than customized customer service. Energistically pursue high standards
-                                            in manufactured products after top-line expertise.
+                                            expertise.
                                         </p>
                                     </div>
                                 </div>

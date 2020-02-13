@@ -42,7 +42,10 @@
 		WHERE account = #{account}
 	</select>
 
-	<select id="getUserById" resultType="com.functionwall.pojo.model.User"></select>
-
+	<update id="updateUsernameById">
+		UPDATE
+		<include refid="tablename" />
+		SET username=#{username} WHERE id=#{userId}
+	</update>
 
 </mapper>

@@ -5,9 +5,12 @@ import com.functionwall.pojo.vo.APIResponse;
 import com.functionwall.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.shiro.web.session.HttpServletSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.View;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -32,6 +35,17 @@ public class UserController {
     public APIResponse getUserByUsername(@PathVariable String username) {
         User user = getUserService().getUserByUsername(username);
         return APIResponse.success(user);
+    }
+
+    /**
+     * 更改网名
+     */
+    @ApiOperation("更改网名")
+    @PutMapping(value = "/username")
+    public String updateUsernameById(@RequestParam String username,
+                                     @RequestParam String userId) {
+        getUserService().updateUsernameById(userId, username);
+        return "my-info";
     }
 
     /**
