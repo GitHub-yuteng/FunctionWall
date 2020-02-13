@@ -16,11 +16,6 @@ public class NewsController {
         return "news-list";
     }
 
-    @GetMapping(value = "/news-grid")
-    public String newsGrid() {
-        return "news-grid";
-    }
-
     @GetMapping(value = "/news-tiles")
     public String newsTiles() {
         return "news-tiles";

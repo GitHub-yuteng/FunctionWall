@@ -12,6 +12,7 @@ public interface UserMapper {
 
     /**
      * 通过帐号密码验证用户
+     *
      * @param account
      * @param password
      * @return
@@ -21,6 +22,7 @@ public interface UserMapper {
 
     /**
      * 注册一个用户
+     *
      * @param user
      * @return
      */
@@ -37,17 +39,31 @@ public interface UserMapper {
 
     /**
      * 根据用户帐号获得相应用户
+     *
      * @param account
      * @return
      */
     User getUserByAccount(@Param("account") String account);
 
     /**
-     * 根据用户id获得相应用户
+     * 根据用户ID更新用户网名
      *
-     * @param id
-     * @return User
+     * @param userId
+     * @param username
      */
-    User getUserById(@Param("id") Long id);
+    void updateUsernameById(@Param("userId") String userId, @Param("username") String username);
 
+    /**
+     * 根据ID获取用户
+     * @param userId
+     * @return
+     */
+    User getUserById(@Param("id") String userId);
+
+    /**
+     * 更新用户密码
+     * @param userId
+     * @param newPassword
+     */
+    void updatePasswordById(@Param("id")String userId, @Param("newPassword")String newPassword);
 }
