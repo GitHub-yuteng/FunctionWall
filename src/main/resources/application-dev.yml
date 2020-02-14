@@ -28,7 +28,7 @@ spring:
     hiddenmethod:
       filter:
         enabled: true
-    thymeleaf:
+  thymeleaf:
       cache: false
   mail:
     username: 995689575@qq.com
@@ -48,7 +48,6 @@ pagehelper:
   helper-dialect: mysql
   reasonable: true
   support-methods-arguments: true
-
 
 logging:
   level:
