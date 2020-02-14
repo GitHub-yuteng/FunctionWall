@@ -61,7 +61,7 @@ public class LoginController {
             User user = getUserService().getUserByAccount(account);
             Session session = currentUser.getSession();
             session.setAttribute("user", user);
-            session.setTimeout(1200L);
+            session.setTimeout(30 * 60 * 1000L);
             return "index";
         } catch (UnknownAccountException uae) {
             log.info("There is no user with username of " + token.getPrincipal());
