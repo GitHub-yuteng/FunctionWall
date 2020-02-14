@@ -75,7 +75,7 @@ public class UserController {
 
         if (flag) {
             currentUser.logout();
-            return "/login";
+            return "login";
         } else {
             model.addAttribute("msg", "修改密码失败！");
             return "my-info";
