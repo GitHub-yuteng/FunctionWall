@@ -85,96 +85,10 @@
                                     team driven channels. Objectively deploy distinctive data whereas bricks-and-clicks bandwidth. Seamlessly fashion
                                     vertical intellectual capital and magnetic e-business.</p>
                             </div>
-                            <div class="col-sm-6 blog-item mb90">
-                                <div class="hover-effect smoothie mb40">
-                                    <a href="#" class="smoothie">
-                                        <img src="/assets/images/blog/blog-1.jpg" alt="Image" class="img-responsive smoothie"></a>
-                                    <div class="hover-overlay smoothie text-center">
-                                        <div class="vertical-align-bottom">
-                                            <h4>The Glamorous Lifestyle</h4>
-                                            <span class="item-category-span">Lifestyle</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="mb20">Professionally engage excellent manufactured products whereas go forward synergy. Collaboratively
-                                    synergize sticky ideas before client-centric markets. Rapidiously synergize distinctive potentialities whereas
-                                    team driven channels. Objectively deploy distinctive data whereas bricks-and-clicks bandwidth. Seamlessly fashion
-                                    vertical intellectual capital and magnetic e-business.</p>
-                            </div>
-                            <div class="col-sm-6 blog-item mb90">
-                                <div class="hover-effect smoothie mb40">
-                                    <a href="#" class="smoothie">
-                                        <img src="/assets/images/blog/blog-2.jpg" alt="Image" class="img-responsive smoothie"></a>
-                                    <div class="hover-overlay smoothie text-center">
-                                        <div class="vertical-align-bottom">
-                                            <h4>The Glamorous Lifestyle</h4>
-                                            <span class="item-category-span">Lifestyle</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="mb20">Professionally engage excellent manufactured products whereas go forward synergy. Collaboratively
-                                    synergize sticky ideas before client-centric markets. Rapidiously synergize distinctive potentialities whereas
-                                    team driven channels. Objectively deploy distinctive data whereas bricks-and-clicks bandwidth. Seamlessly fashion
-                                    vertical intellectual capital and magnetic e-business.</p>
-                            </div>
-                            <div class="col-sm-6 blog-item mb90">
-                                <div class="hover-effect smoothie mb40">
-                                    <a href="#" class="smoothie">
-                                        <img src="/assets/images/blog/blog-1.jpg" alt="Image" class="img-responsive smoothie"></a>
-                                    <div class="hover-overlay smoothie text-center">
-                                        <div class="vertical-align-bottom">
-                                            <h4>The Glamorous Lifestyle</h4>
-                                            <span class="item-category-span">Lifestyle</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="mb20">Professionally engage excellent manufactured products whereas go forward synergy. Collaboratively
-                                    synergize sticky ideas before client-centric markets. Rapidiously synergize distinctive potentialities whereas
-                                    team driven channels. Objectively deploy distinctive data whereas bricks-and-clicks bandwidth. Seamlessly fashion
-                                    vertical intellectual capital and magnetic e-business.</p>
-                            </div>
-                            <div class="col-sm-6 blog-item mb90">
-                                <div class="hover-effect smoothie mb40">
-                                    <a href="#" class="smoothie">
-                                        <img src="/assets/images/blog/blog-2.jpg" alt="Image" class="img-responsive smoothie"></a>
-                                    <div class="hover-overlay smoothie text-center">
-                                        <div class="vertical-align-bottom">
-                                            <h4>The Glamorous Lifestyle</h4>
-                                            <span class="item-category-span">Lifestyle</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="mb20">Professionally engage excellent manufactured products whereas go forward synergy. Collaboratively
-                                    synergize sticky ideas before client-centric markets. Rapidiously synergize distinctive potentialities whereas
-                                    team driven channels. Objectively deploy distinctive data whereas bricks-and-clicks bandwidth. Seamlessly fashion
-                                    vertical intellectual capital and magnetic e-business.</p>
-                            </div>
                         </div>
                     </div>
 
                     <div class="col-sm-3 col-sm-offset-1 sidebar">
-                        <div class="gallery-widget widget mb40">
-                            <h4 class="widget-title mb40">Gallery</h4>
-                            <div class="widget-content">
-                                <div class="gallery-list">
-                                    <a class="thumb" href="#">
-                                        <img alt="" class="img-responsive" src="https://unsplash.it/300/300?image=548">
-                                    </a>
-                                    <a class="thumb" href="#">
-                                        <img alt="" class="img-responsive" src="https://unsplash.it/300/300?image=659">
-                                    </a>
-                                    <a class="thumb" href="#">
-                                        <img alt="" class="img-responsive" src="https://unsplash.it/300/300?image=974">
-                                    </a>
-                                    <a class="thumb" href="#">
-                                        <img alt="" class="img-responsive" src="https://unsplash.it/300/300?image748">
-                                    </a>
-                                    <a class="thumb" href="#">
-                                        <img alt="" class="img-responsive" src="https://unsplash.it/300/300?image=484">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
                         <div class="text-widget widget mb40">
                             <h4 class="widget-title mb40">Location</h4>
                             <div class="widget-content">
@@ -240,17 +154,17 @@
                                 <h4 class="widget-title mb40">联系开发人员</h4>
                                 <div class="content-wiget">
                                     <p class="widget-content">请输入你想说的话并点击发送</p>
-                                    <p class="widget-content">系统会发送一封邮件到我的账户</p>
+                                    <p class="widget-content">系统会自动发送一封邮件到开发者邮箱</p>
                                     <form th:action="@{/user/email}" method="post">
                                         <div class="input-group">
                                             <input class="form-control form-email-widget" type="text" name="email">
                                             <input type="hidden" name="userId" th:value="${session.user.id}"/>
                                             <input type="hidden" name="realname" th:value="${session.user.realname}"/>
                                             <span class="input-group-btn">
-                                            <input class="btn btn-email" type="submit" value="✓"/></span>
+                                                <input class="btn btn-primary mt30 pull-right" type="submit" value="✓"/>
+                                            </span>
                                         </div>
                                     </form>
-                                    <p></p>
                                 </div>
                             </div>
                         </div>

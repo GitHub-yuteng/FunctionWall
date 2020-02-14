@@ -1,6 +1,7 @@
 package com.functionwall.service;
 
 import com.functionwall.pojo.model.Topic;
+import com.github.pagehelper.PageInfo;
 
 import java.util.List;
 
@@ -9,9 +10,9 @@ import java.util.List;
  */
 public interface TopicService {
 
-    void save(String title, String category, String content,String userId);
+    void save(String title, String category, String content, String userId);
 
-    List<Topic> queryListForLoveWallTopic();
+    PageInfo<Topic> queryListForLoveWallTopic(Integer pageNo, Integer pageSize);
 
-    List<Topic> queryListForComplaintWallTopic();
+    PageInfo<Topic> queryListForComplaintWallTopic(Integer pageNo, Integer pageSize);
 }

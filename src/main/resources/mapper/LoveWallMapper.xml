@@ -12,6 +12,12 @@
 		(
 		<include refid="insertFields"/>
 		)
-		VALUE (#{title},#{category},#{content},#{createdDate},#{userId})
+		VALUE (#{title},#{category},#{content},#{createdDate},#{idUser})
 	</insert>
+    <select id="queryListForLoveWallTopics" resultType="com.functionwall.pojo.model.Topic">
+		SELECT
+		<include refid="selectFields"/>
+		FROM
+		<include refid="tablename"/>
+	</select>
 </mapper>

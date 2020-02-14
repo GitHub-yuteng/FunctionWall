@@ -2,50 +2,79 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.functionwall.dao.UserMapper">
-	<sql id="tablename">user</sql>
-	<sql id="insertFields">username,account,password,realname,level,sex,created_date</sql>
-	<sql id="selectFields">id,username,account,password,realname,level,sex,created_date</sql>
+    <sql id="tablename">user</sql>
+    <sql id="insertFields">username
+    ,
+    account,
+    password,
+    realname,
+    level,
+    sex,
+    created_date</sql>
+    <sql id="selectFields">id
+    ,
+    username,
+    account,
+    password,
+    realname,
+    level,
+    sex,
+    created_date</sql>
 
-	<insert id="save" parameterType="com.functionwall.pojo.model.User" useGeneratedKeys="true" keyProperty="id">
-		  INSERT INTO
-		  <include refid="tablename"/>
-		  (
-		  <include refid="insertFields"/>
-		  )
-		  VALUE (#{username},#{account},#{password},#{realname},#{level},#{sex},#{createdDate})
-	</insert>
+    <insert id="save" parameterType="com.functionwall.pojo.model.User" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO
+        <include refid="tablename"/>
+        (
+        <include refid="insertFields"/>
+        )
+        VALUE (#{username},#{account},#{password},#{realname},#{level},#{sex},#{createdDate})
+    </insert>
 
-	<select id="getUserInfoByAccountAndPassword" resultType="com.functionwall.pojo.model.User">
+    <select id="getUserInfoByAccountAndPassword" resultType="com.functionwall.pojo.model.User">
         SELECT
         <include refid="selectFields"/>
         FROM
-        <include refid="tablename" />
+        <include refid="tablename"/>
         WHERE
         account = #{account}
         AND
         password = #{password}
-	</select>
+    </select>
 
-	<select id="getUserByUsername" resultType="com.functionwall.pojo.model.User" parameterType="string">
-		SELECT
-		<include refid="selectFields"/>
-		FROM
-		<include refid="tablename" />
-		WHERE username = #{username}
-	</select>
+    <select id="getUserByUsername" resultType="com.functionwall.pojo.model.User" parameterType="string">
+        SELECT
+        <include refid="selectFields"/>
+        FROM
+        <include refid="tablename"/>
+        WHERE username = #{username}
+    </select>
 
-	<select id="getUserByAccount" resultType="com.functionwall.pojo.model.User">
-		SELECT
-		<include refid="selectFields"/>
-		FROM
-		<include refid="tablename" />
-		WHERE account = #{account}
-	</select>
+    <select id="getUserByAccount" resultType="com.functionwall.pojo.model.User">
+        SELECT
+        <include refid="selectFields"/>
+        FROM
+        <include refid="tablename"/>
+        WHERE account = #{account}
+    </select>
 
-	<update id="updateUsernameById">
-		UPDATE
-		<include refid="tablename" />
-		SET username=#{username} WHERE id=#{userId}
-	</update>
+    <update id="updateUsernameById">
+        UPDATE
+        <include refid="tablename"/>
+        SET username=#{username} WHERE id=#{userId}
+    </update>
+
+    <select id="getUserById" resultType="com.functionwall.pojo.model.User">
+        SELECT
+        <include refid="selectFields"/>
+        FROM
+        <include refid="tablename"/>
+        WHERE id = #{id}
+    </select>
+
+    <update id="updatePasswordById">
+        UPDATE
+        <include refid="tablename"/>
+        SET password=#{newPassword} WHERE id=#{id}
+    </update>
 
 </mapper>

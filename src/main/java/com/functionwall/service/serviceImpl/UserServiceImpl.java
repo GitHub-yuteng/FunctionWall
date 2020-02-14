@@ -4,6 +4,7 @@ import com.functionwall.constant.ConstantUserField;
 import com.functionwall.dao.UserMapper;
 import com.functionwall.pojo.model.User;
 import com.functionwall.service.UserService;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.crypto.hash.Md5Hash;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -62,6 +63,17 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
+     * 根据用户ID获得相应用户
+     * @param userId
+     * @return
+     */
+    @Override
+    public User getUserById(String userId) {
+        User user = getUserDao().getUserById(userId);
+        return user;
+    }
+
+    /**
      * 注册一个用户
      */
     @Override
@@ -79,6 +91,12 @@ public class UserServiceImpl implements UserService {
         getUserDao().save(user);
     }
 
+    /**
+     * 发送邮件
+     * @param email
+     * @param userId
+     * @param realname
+     */
     @Override
     @Async
     public void sendMail(String email, String userId, String realname) {
@@ -99,6 +117,26 @@ public class UserServiceImpl implements UserService {
     @Override
     public void updateUsernameById(String userId, String username) {
         getUserDao().updateUsernameById(userId,username);
+    }
+
+    /**
+     * 根据用户ID更新密码
+     * @param userId
+     * @param oldPassword
+     * @param newPassword
+     */
+    @Override
+    public Boolean updatePasswordById(String userId, String oldPassword, String newPassword) {
+        User user = getUserDao().getUserById(userId);
+
+        String oldPasswordMD5 = new Md5Hash(oldPassword, "", 1024).toHex();
+        if(StringUtils.equals(user.getPassword(),oldPasswordMD5)){
+            String newPasswordMD5 = new Md5Hash(newPassword, "", 1024).toHex();
+            getUserDao().updatePasswordById(userId,newPasswordMD5);
+            return true;
+        }else {
+            return false;
+        }
     }
 }
 

@@ -10,15 +10,6 @@
     <meta content="" name="author">
 
     <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico" type="image/x-icon"/>
-    <link rel="apple-touch-icon" href="/assets/images/favicon/apple-touch-icon.png"/>
-    <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicon/apple-touch-icon-57x57.png"/>
-    <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicon/apple-touch-icon-72x72.png"/>
-    <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicon/apple-touch-icon-76x76.png"/>
-    <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicon/apple-touch-icon-114x114.png"/>
-    <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicon/apple-touch-icon-120x120.png"/>
-    <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicon/apple-touch-icon-144x144.png"/>
-    <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicon/apple-touch-icon-152x152.png"/>
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon-180x180.png"/>
 
     <title>Login In</title>
     <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -63,7 +54,9 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <p>Competently develop client-focused customer service whereas team driven leadership skills. </p>
+                                        <p>
+
+                                        </p>
                                     </div>
                                     <div class="col-sm-8 col-sm-offset-1">
                                         <div class="row">
@@ -74,11 +67,11 @@
                                                         <p class="alert alert-danger" th:if="${msg} != null" th:text="${msg}"></p>
                                                         <input type="text" class="form-control col-md-4 mb20" name="account"
                                                                placeholder="账号" id="account" required
-                                                               data-validation-required-message="请输入您的账号."/>
+                                                               data-validation-required-message="请输入您的账号." maxlength="12"/>
 
                                                         <input type="password" class="form-control col-md-4 mb20" name="password"
                                                                placeholder="密码" id="password" required
-                                                               data-validation-required-message="请输入您的密码."/>
+                                                               data-validation-required-message="请输入您的密码." maxlength="12"/>
                                                     </div>
                                                     <input class="btn btn-primary mt30 pull-right" type="submit" name="submit" value="Submit"/>
                                                 </form>

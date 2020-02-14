@@ -90,6 +90,7 @@ public class ShiroConfig {
         filterMap.put("/swagger-ui.html", "anon");
 
         filterMap.put("/login", "anon");
+        filterMap.put("/manager/login", "anon");
         filterMap.put("/register", "anon");
 
         /**

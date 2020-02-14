@@ -71,13 +71,39 @@
                     <div class="col-sm-4 col-lg-offset-4">
                         <div class="panel-group styled-accordion" id="accordion" role="tablist" aria-multiselectable="true">
                             <div class="panel panel-default">
+                                <p class="alert alert-danger" th:if="${msg}!=null" th:text="${msg}"></p>
                                 <div class="panel-heading panel-open smoothie" role="tab" id="headingOne">
                                     <h4 class="panel-title">
                                         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true"
-                                           aria-controls="collapseOne">更改网名</a>
+                                           aria-controls="collapseOne">联系开发者</a>
                                     </h4>
                                 </div>
                                 <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body">
+                                        <p class="widget-content">请输入你想说的话并点击发送</p>
+                                        <p class="widget-content">系统会自动发送一封邮件到开发者邮箱</p>
+                                        <form th:action="@{/user/email}" method="post">
+                                            <div class="input-group">
+                                                <input class="form-control form-email-widget" type="text" name="email">
+                                                <input type="hidden" name="userId" th:value="${session.user.id}"/>
+                                                <input type="hidden" name="realname" th:value="${session.user.realname}"/>
+                                                <span class="input-group-btn">
+                                                    <input class="btn btn-primary mt30 pull-right" type="submit" value="✓"/>
+                                                </span>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading smoothie" role="tab" id="headingThree">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree"
+                                           aria-expanded="false" aria-controls="collapseThree">更改网名</a>
+                                    </h4>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                                     <div class="panel-body">
                                         <form th:action="@{/user/username}" method="post">
                                             <input type="hidden" name="_method" value="put"/>
@@ -85,7 +111,8 @@
                                                 <input class="form-control" type="text" name="username" placeholder="请输入更改的网名"/>
                                                 <input type="hidden" name="userId" th:value="${session.user.id}"/>
                                                 <span class="input-group-btn">
-                                            <input class="btn btn-primary mt30 pull-right" type="submit" value="✓"/></span>
+                                                    <input class="btn btn-primary mt30 pull-right" type="submit" value="✓"/>
+                                                </span>
                                             </div>
                                         </form>
                                     </div>
@@ -103,163 +130,18 @@
                                         <form th:action="@{/user/password}" method="post">
                                             <input type="hidden" name="_method" value="put"/>
                                             <div class="input-group">
-                                                <input class="form-control" type="text" name="oldPassword" placeholder="旧密码"/>
-                                                <input class="form-control" type="text" name="newPassword" placeholder="新密码"/>
+                                                <input class="form-control" type="password" name="oldPassword" placeholder="旧密码" maxlength="12"/>
+                                                <input class="form-control" type="password" name="newPassword" placeholder="新密码，最长12位"
+                                                       maxlength="12"/>
                                                 <input type="hidden" name="userId" th:value="${session.user.id}"/>
                                                 <span class="input-group-btn">
                                                     <input class="btn btn-primary mt30 pull-right" type="submit" value="✓"/>
                                                 </span>
                                             </div>
                                         </form>
+                                        <br/>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading smoothie" role="tab" id="headingThree">
-                                    <h4 class="panel-title">
-                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree"
-                                           aria-expanded="false" aria-controls="collapseThree">Autumn Event</a>
-                                    </h4>
-                                </div>
-                                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                    <div class="panel-body">
-                                        <p>
-                                            expertise.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="our-team">
-        <div class="section-inner">
-            <div class="container">
-                <div class="row mb60 text-center">
-                    <div class="col-sm-12">
-                        <h3 class="section-title">Meet The Team</h3>
-                        <p class="section-sub-title">The very best in their fields.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row nopaddingleftright">
-                <div class="team-item col-md-3 match-height nopaddingleftright">
-                    <div class="hover-effect smoothie match-height">
-                        <a href="#" class="smoothie">
-                            <img src="/assets/images/team-1.jpg" alt="Image" class="img-responsive smoothie"></a>
-                        <div class="hover-overlay smoothie text-center">
-                            <div class="vertical-align-bottom">
-                                <h4>Richard Smith</h4>
-                                <span class="item-category-span">Technology Writer</span>
-                            </div>
-                        </div>
-                        <div class="hover-caption dark-overlay smoothie text-center">
-                            <div class="vertical-align-top">
-                                <p class="mb20">Credibly re-engineer best-of-breed imperatives for viral innovation. Appropriately extend sustainable
-                                    channels before sustainable niches. Intrinsicly seize functionalized niches for user-centric paradigms.</p>
-                                <div class="team-social">
-                                    <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
-                                    <a class="google" href="#"><i class="fa fa-google-plus"></i></a>
-                                    <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-                                    <a class="pinterest" href="#"><i class="fa fa-pinterest"></i></a>
-                                    <a class="blog" href="#"><i class="fa fa-rss"></i></a>
-                                    <a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a>
-                                </div>
-                            </div>
-                            <div class="vertical-align-bottom">
-                                <a href="single-team.html" class="btn btn-primary mb20">View Profile <i class="fa fa-angle-right smoothie"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-item col-md-3 match-height nopaddingleftright">
-                    <div class="hover-effect smoothie match-height">
-                        <a href="#" class="smoothie">
-                            <img src="/assets/images/team-2.jpg" alt="Image" class="img-responsive smoothie"></a>
-                        <div class="hover-overlay smoothie text-center">
-                            <div class="vertical-align-bottom">
-                                <h4>Dave Bronze</h4>
-                                <span class="item-category-span">Editor</span>
-                            </div>
-                        </div>
-                        <div class="hover-caption dark-overlay smoothie text-center">
-                            <div class="vertical-align-top">
-                                <p class="mb20">Credibly re-engineer best-of-breed imperatives for viral innovation. Appropriately extend sustainable
-                                    channels before sustainable niches. Intrinsicly seize functionalized niches for user-centric paradigms.</p>
-                                <div class="team-social">
-                                    <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
-                                    <a class="google" href="#"><i class="fa fa-google-plus"></i></a>
-                                    <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-                                    <a class="pinterest" href="#"><i class="fa fa-pinterest"></i></a>
-                                    <a class="blog" href="#"><i class="fa fa-rss"></i></a>
-                                    <a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a>
-                                </div>
-                            </div>
-                            <div class="vertical-align-bottom">
-                                <a href="single-team.html" class="btn btn-primary mb20">View Profile <i class="fa fa-angle-right smoothie"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-item col-md-3 match-height nopaddingleftright">
-                    <div class="hover-effect smoothie match-height">
-                        <a href="#" class="smoothie">
-                            <img src="/assets/images/team-3.jpg" alt="Image" class="img-responsive smoothie"></a>
-                        <div class="hover-overlay smoothie text-center">
-                            <div class="vertical-align-bottom">
-                                <h4>Trevor Shannon</h4>
-                                <span class="item-category-span">Videographer</span>
-                            </div>
-                        </div>
-                        <div class="hover-caption dark-overlay smoothie text-center">
-                            <div class="vertical-align-top">
-                                <p class="mb20">Credibly re-engineer best-of-breed imperatives for viral innovation. Appropriately extend sustainable
-                                    channels before sustainable niches. Intrinsicly seize functionalized niches for user-centric paradigms.</p>
-                                <div class="team-social">
-                                    <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
-                                    <a class="google" href="#"><i class="fa fa-google-plus"></i></a>
-                                    <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-                                    <a class="pinterest" href="#"><i class="fa fa-pinterest"></i></a>
-                                    <a class="blog" href="#"><i class="fa fa-rss"></i></a>
-                                    <a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a>
-                                </div>
-                            </div>
-                            <div class="vertical-align-bottom">
-                                <a href="single-team.html" class="btn btn-primary mb20">View Profile <i class="fa fa-angle-right smoothie"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-item col-md-3 match-height nopaddingleftright">
-                    <div class="hover-effect smoothie match-height">
-                        <a href="#" class="smoothie">
-                            <img src="/assets/images/team-4.jpg" alt="Image" class="img-responsive smoothie"></a>
-                        <div class="hover-overlay smoothie text-center">
-                            <div class="vertical-align-bottom">
-                                <h4>Stan Thorpe</h4>
-                                <span class="item-category-span">Stylist</span>
-                            </div>
-                        </div>
-                        <div class="hover-caption dark-overlay smoothie text-center">
-                            <div class="vertical-align-top">
-                                <p class="mb20">Credibly re-engineer best-of-breed imperatives for viral innovation. Appropriately extend sustainable
-                                    channels before sustainable niches. Intrinsicly seize functionalized niches for user-centric paradigms.</p>
-                                <div class="team-social">
-                                    <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
-                                    <a class="google" href="#"><i class="fa fa-google-plus"></i></a>
-                                    <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-                                    <a class="pinterest" href="#"><i class="fa fa-pinterest"></i></a>
-                                    <a class="blog" href="#"><i class="fa fa-rss"></i></a>
-                                    <a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a>
-                                </div>
-                            </div>
-                            <div class="vertical-align-bottom">
-                                <a href="single-team.html" class="btn btn-primary mb20">View Profile <i class="fa fa-angle-right smoothie"></i></a>
                             </div>
                         </div>
                     </div>

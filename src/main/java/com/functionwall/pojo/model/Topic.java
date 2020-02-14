@@ -22,5 +22,5 @@ public class Topic implements Serializable {
     private String content;//帖子内容
     private Byte[] image;//帖子图片
     private Date createdDate;//创建时间
-    private Integer userId;
+    private Long idUser;
 }
