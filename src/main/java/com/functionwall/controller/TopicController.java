@@ -69,13 +69,15 @@ public class TopicController {
      * @param pageSize
      * @param model
      */
-    @GetMapping(value = "/lovewall")
+    @GetMapping(value = "/love-wall")
     public String queryListForLoveWallTopic(@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo,
                                             @RequestParam(value = "pageSize", defaultValue = "6") Integer pageSize,
                                             Model model) {
         PageInfo<Topic> pageInfo = getTopicService().queryListForLoveWallTopic(pageNo, pageSize);
         model.addAttribute("loveInfo", pageInfo);
-        return "topic/love-wall";
+        System.out.println("------------------");
+        System.out.println(pageInfo);
+        return "love-wall";
     }
 
     /**
@@ -103,10 +105,5 @@ public class TopicController {
     @GetMapping(value = "/complaint-wall")
     public String complaintWall() {
         return "complaint-wall";
-    }
-
-    @GetMapping(value = "/love-wall")
-    public String loveWall() {
-        return "love-wall";
     }
 }

@@ -25,7 +25,7 @@
 
     <link href="/assets/css/animate.css" rel="stylesheet">
     <link href="/assets/css/plugins.css" rel="stylesheet">
-    <link href="/assets/css/layui.css" rel="stylesheet">
+    <!--<link href="/assets/css/layui.css" rel="stylesheet">-->
     <link href="/style.css" rel="stylesheet">
 
 </head>
@@ -53,37 +53,23 @@
                 <div class="row">
                     <div class="col-sm-8">
                         <div class="row">
-                            <div class="col-sm-6 blog-item mb90">
+                            <div class="col-sm-6 blog-item mb90" th:each="info : ${loveInfo.list}">
                                 <div class="hover-effect smoothie mb40">
                                     <a href="#" class="smoothie">
                                         <img src="/assets/images/blog/blog-1.jpg" alt="Image" class="img-responsive smoothie"></a>
                                     <div class="hover-overlay smoothie text-center">
                                         <div class="vertical-align-bottom">
                                             <h4>The Glamorous Lifestyle</h4>
-                                            <span class="item-category-span">Lifestyle</span>
+                                            <span class="item-category-span" th:text="${info.createdDate}"></span>
                                         </div>
                                     </div>
                                 </div>
-                                <p class="mb20">Professionally engage excellent manufactured products whereas go forward synergy. Collaboratively
-                                    synergize sticky ideas before client-centric markets. Rapidiously synergize distinctive potentialities whereas
-                                    team driven channels. Objectively deploy distinctive data whereas bricks-and-clicks bandwidth. Seamlessly fashion
-                                    vertical intellectual capital and magnetic e-business.</p>
+                                <p class="mb20" th:text="${info.content}"></p>
                             </div>
-                            <div class="col-sm-6 blog-item mb90">
-                                <div class="hover-effect smoothie mb40">
-                                    <a href="#" class="smoothie">
-                                        <img src="/assets/images/blog/blog-2.jpg" alt="Image" class="img-responsive smoothie"></a>
-                                    <div class="hover-overlay smoothie text-center">
-                                        <div class="vertical-align-bottom">
-                                            <h4>The Glamorous Lifestyle</h4>
-                                            <span class="item-category-span">Lifestyle</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="mb20">Professionally engage excellent manufactured products whereas go forward synergy. Collaboratively
-                                    synergize sticky ideas before client-centric markets. Rapidiously synergize distinctive potentialities whereas
-                                    team driven channels. Objectively deploy distinctive data whereas bricks-and-clicks bandwidth. Seamlessly fashion
-                                    vertical intellectual capital and magnetic e-business.</p>
+                            <!--分页-->
+                            <div class="pagec" id="pagearea">
+                                <ul class="pagination">
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -183,5 +169,20 @@
 <script src="/assets/js/owl-carousel.js"></script>
 <script src="/assets/js/plugins.js"></script>
 <script src="/assets/js/init.js"></script>
+<script src="/js/page.js"></script>
+
+<script th:inline="javascript">
+    $(function(){
+        var currPage = [[${loveInfo.pageNum}]];
+        var totalPage = [[${loveInfo.pages}]];
+        $(".pagination").createPage({
+            totalPage: totalPage,
+            currPage: currPage,
+            backFn:function(p){
+                location.href = "/topic/love-wall?pageNo=" + p;
+            }
+        });
+    })
+</script>
 </body>
 </html>

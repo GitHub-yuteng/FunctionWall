@@ -97,6 +97,7 @@ public class ShiroConfig {
          * 静态资源
          */
         filterMap.put("/assets/**", "anon");
+        filterMap.put("/js/**", "anon");
         filterMap.put("/style.css", "anon");
 
         filterMap.put("/**", "authc");

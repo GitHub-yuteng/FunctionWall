@@ -67,8 +67,9 @@ public class TopicServiceImpl implements TopicService {
      */
     @Override
     public PageInfo<Topic> queryListForLoveWallTopic(Integer pageNo, Integer pageSize) {
+        PageHelper.startPage(pageNo, pageSize);
         List<Topic> loveWallTopicList = getLoveWallMapper().queryListForLoveWallTopics();
-        PageInfo<Topic> page = new PageInfo<>(loveWallTopicList, 5);
+        PageInfo<Topic> page = new PageInfo<>(loveWallTopicList);
         return page;
     }
 

@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
@@ -28,10 +29,10 @@ public class UserServiceImpl implements UserService {
     private UserMapper userDao;
 
     @Autowired
-    public JavaMailSenderImpl mailSender;
+    public JavaMailSender javaMailSender;
 
-    protected JavaMailSenderImpl getMailSender() {
-        return mailSender;
+    protected JavaMailSender getMailSender() {
+        return javaMailSender;
     }
 
     protected UserMapper getUserDao() {
@@ -107,7 +108,7 @@ public class UserServiceImpl implements UserService {
         mailMessage.setTo("995689575@qq.com");
         mailMessage.setFrom("995689575@qq.com");
 
-        mailSender.send(mailMessage);
+        javaMailSender.send(mailMessage);
         System.out.println("发送！");
     }
 
