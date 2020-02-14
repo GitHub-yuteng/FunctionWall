@@ -75,7 +75,7 @@ public class TopicController {
                                             Model model) {
         PageInfo<Topic> pageInfo = getTopicService().queryListForLoveWallTopic(pageNo, pageSize);
         model.addAttribute("loveInfo", pageInfo);
-        return "topic/love-wall";
+        return "/love-wall";
     }
 
     /**

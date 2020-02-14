@@ -1,4 +1,6 @@
 application.yml
+application-dev.yml
+application-prod.yml
 target/
 !.mvn/wrapper/maven-wrapper.jar
 mvnw
