@@ -15,6 +15,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.File;
+import java.util.UUID;
 
 @SpringBootTest
 class FunctionwallApplicationTests {
@@ -61,12 +62,9 @@ class FunctionwallApplicationTests {
     @Test
     void testTopic() {
         for (int i = 0; i < 50; i++) {
-//            topicService.save("熊鹏是渣男", "表白墙", "熊鹏是渣男", "55");
+            topicService.save("表白:" + UUID.randomUUID().toString().substring(1, 8), "吐槽墙",
+                    "你说我的眼睛灿若星辰，那是因为你是星辰，而我的眼中只有你。你说我的眼睛灿若星辰，那是因为你是星辰，而我的眼中只有你。你说我的眼睛灿若星辰，那是因为你是星辰，而我的眼中只有你。你说我的眼睛灿若星辰，那是因为你是星辰，而我的眼中只有你。你说我的眼睛灿若星辰，那是因为你是星辰，而我的眼中只有你。你说我的眼睛灿若星辰，那是因为你是星辰，而我的眼中只有你。", "56");
         }
     }
 
-    @Test
-    void testQueryCWall() {
-//        PageInfo<Topic> topicPageInfo = topicService.queryListForComplaintWallTopic(2, 7);
-    }
 }

@@ -25,7 +25,6 @@
 
     <link href="/assets/css/animate.css" rel="stylesheet">
     <link href="/assets/css/plugins.css" rel="stylesheet">
-    <!--<link href="/assets/css/layui.css" rel="stylesheet">-->
     <link href="/style.css" rel="stylesheet">
 
 </head>
@@ -59,15 +58,20 @@
                                         <img src="/assets/images/blog/blog-1.jpg" alt="Image" class="img-responsive smoothie"></a>
                                     <div class="hover-overlay smoothie text-center">
                                         <div class="vertical-align-bottom">
-                                            <h4>The Glamorous Lifestyle</h4>
-                                            <span class="item-category-span" th:text="${info.createdDate}"></span>
+                                            <h5 th:text="${info.title}"></h5><br/>
+                                            <span class="item-category-span" th:text="${#dates.format(info.createdDate, 'yyyy-MM-dd')}"></span>
+                                        </div>
+                                    </div>
+                                    <div class="hover-caption dark-overlay smoothie text-center">
+                                        <div class="vertical-align-top">
+                                            <p class="mb20" th:text="${info.content}"></p>
                                         </div>
                                     </div>
                                 </div>
                                 <p class="mb20" th:text="${info.content}"></p>
                             </div>
                             <!--分页-->
-                            <div class="pagec" id="pagearea">
+                            <div class="text-center col-sm-12" id="pagearea">
                                 <ul class="pagination">
                                 </ul>
                             </div>
@@ -172,13 +176,13 @@
 <script src="/js/page.js"></script>
 
 <script th:inline="javascript">
-    $(function(){
+    $(function () {
         var currPage = [[${loveInfo.pageNum}]];
         var totalPage = [[${loveInfo.pages}]];
         $(".pagination").createPage({
             totalPage: totalPage,
             currPage: currPage,
-            backFn:function(p){
+            backFn: function (p) {
                 location.href = "/topic/love-wall?pageNo=" + p;
             }
         });

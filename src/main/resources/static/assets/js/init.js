@@ -88,7 +88,7 @@ jQuery(document).ready(function () {
             }, function (data) {
                 if(data.code == '200'){
                     alert("注册成功");
-                    window.location.href = "/index";
+                    window.location.href = "/login";
                 }else {
                     alert("注册失败");
                 }

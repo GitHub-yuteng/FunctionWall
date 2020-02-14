@@ -82,7 +82,7 @@ public class TopicServiceImpl implements TopicService {
     public PageInfo queryListForComplaintWallTopic(Integer pageNo, Integer pageSize) {
         PageHelper.startPage(pageNo, pageSize);
         List<Topic> complaintWallTopicList = getComplaintWallMapper().queryListForComplaintWallTopics();
-        PageInfo<Topic> page = new PageInfo<>(complaintWallTopicList, 5);
+        PageInfo<Topic> page = new PageInfo<>(complaintWallTopicList);
         return page;
     }
 }

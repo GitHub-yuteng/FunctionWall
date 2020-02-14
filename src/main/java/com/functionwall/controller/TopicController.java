@@ -16,7 +16,6 @@ import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 /**
  * @author Yu
@@ -71,12 +70,10 @@ public class TopicController {
      */
     @GetMapping(value = "/love-wall")
     public String queryListForLoveWallTopic(@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo,
-                                            @RequestParam(value = "pageSize", defaultValue = "6") Integer pageSize,
+                                            @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize,
                                             Model model) {
         PageInfo<Topic> pageInfo = getTopicService().queryListForLoveWallTopic(pageNo, pageSize);
         model.addAttribute("loveInfo", pageInfo);
-        System.out.println("------------------");
-        System.out.println(pageInfo);
         return "love-wall";
     }
 
@@ -87,23 +84,18 @@ public class TopicController {
      * @param pageSize
      * @param model
      */
-    @GetMapping(value = "/complaintwall")
+    @GetMapping(value = "/complaint-wall")
     public String queryListForComplaintWallTopic(@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo,
-                                                 @RequestParam(value = "pageSize", defaultValue = "7") Integer pageSize,
+                                                 @RequestParam(value = "pageSize", defaultValue = "9") Integer pageSize,
                                                  Model model) {
         PageInfo<Topic> pageInfo = getTopicService().queryListForComplaintWallTopic(pageNo, pageSize);
         model.addAttribute("complaintInfo", pageInfo);
-        return "topic/complaint-wall";
+        return "complaint-wall";
     }
 
 
     @GetMapping(value = "/post")
     public String topic() {
         return "post-topic";
-    }
-
-    @GetMapping(value = "/complaint-wall")
-    public String complaintWall() {
-        return "complaint-wall";
     }
 }
