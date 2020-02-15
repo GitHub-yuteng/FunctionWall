@@ -23,13 +23,12 @@ spring:
       filters: stat
       max-pool-prepared-statement-per-connection-size: 20
       use-global-data-source-stat: true
-
   mvc:
     hiddenmethod:
       filter:
         enabled: true
   thymeleaf:
-      cache: false
+    cache: false
   mail:
     username: 995689575@qq.com
     password: vjktxqqgwgczbdhh

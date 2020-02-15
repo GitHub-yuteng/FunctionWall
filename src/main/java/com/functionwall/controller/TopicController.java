@@ -2,6 +2,7 @@ package com.functionwall.controller;
 
 import com.functionwall.constant.ConstantField;
 import com.functionwall.pojo.model.Topic;
+import com.functionwall.service.QiniuService;
 import com.functionwall.service.TopicService;
 import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
@@ -12,10 +13,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 
 /**
  * @author Yu
@@ -28,8 +31,15 @@ public class TopicController {
     @Autowired
     private TopicService topicService;
 
-    public TopicService getTopicService() {
+    protected TopicService getTopicService() {
         return topicService;
+    }
+
+    @Autowired
+    private QiniuService qiniuService;
+
+    protected QiniuService getQiniuService() {
+        return qiniuService;
     }
 
     /**
@@ -46,12 +56,19 @@ public class TopicController {
     public View saveTopic(@RequestParam String title,
                           @RequestParam String category,
                           @RequestParam String realnameUser,
-                          @RequestParam(required = false,defaultValue = "") String link,
+                          @RequestParam(required = false, defaultValue = "") String link,
+                          @RequestParam(required = false, defaultValue = "") MultipartFile image,
                           @RequestParam String content,
                           @RequestParam String userId,
                           HttpServletRequest request) {
         String contextPath = request.getContextPath();
-        getTopicService().save(title, category,realnameUser,link,content, userId);
+
+        try {
+            String imageUrl = getQiniuService().saveImage(image);
+            getTopicService().save(title, category, realnameUser, link,imageUrl,content, userId);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         if (ConstantField.LOVEWALL.equals(category)) {
             return new RedirectView(contextPath + "/topic/love-wall");
