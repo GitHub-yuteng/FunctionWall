@@ -1,4 +1,4 @@
-package com.functionwall.service.serviceImpl;
+package com.functionwall.service.impl;
 
 import com.functionwall.dao.LogMapper;
 import com.functionwall.exception.FunctionWallErrorCode;

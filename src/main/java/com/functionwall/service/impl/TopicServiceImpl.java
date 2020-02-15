@@ -1,4 +1,4 @@
-package com.functionwall.service.serviceImpl;
+package com.functionwall.service.impl;
 
 import com.functionwall.constant.ConstantField;
 import com.functionwall.dao.ComplaintWallMapper;
@@ -11,7 +11,6 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
