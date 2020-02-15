@@ -57,7 +57,7 @@
                                         <div class="col-sm-4 masonry-portfolio-item mb30 apps" th:each="info : ${complaintInfo.list}">
                                             <div class="hover-effect smoothie mb20">
                                                 <a href="#" class="smoothie">
-                                                    <img src="/assets/images/portfolio/folio-4.jpg" alt="Image" class="img-responsive smoothie"></a>
+                                                    <img th:src="${info.imageUrl}" alt="Image" class="img-responsive smoothie"></a>
                                                 <div class="hover-overlay smoothie text-center">
                                                     <div class="vertical-align-bottom">
                                                         <h5 th:text="${info.title}"></h5><br/>

@@ -1,5 +1,6 @@
 package com.functionwall.utils;
 
+
 import com.google.gson.Gson;
 
 public class GsonUtils {

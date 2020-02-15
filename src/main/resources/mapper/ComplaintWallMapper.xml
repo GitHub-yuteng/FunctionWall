@@ -3,8 +3,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.functionwall.dao.ComplaintWallMapper">
 	<sql id="tablename">topic_complaintwall</sql>
-	<sql id="insertFields">title,realname_user,link,content,created_date,id_user</sql>
-	<sql id="selectFields">id,title,realname_user,link,content,created_date,id_user</sql>
+	<sql id="insertFields">title,realname_user,link,image_url,content,created_date,id_user</sql>
+	<sql id="selectFields">id,title,realname_user,link,image_url,content,created_date,id_user</sql>
 
 	<insert id="save" useGeneratedKeys="true" keyProperty="id" >
 		INSERT INTO
@@ -12,7 +12,7 @@
 		(
 		<include refid="insertFields"/>
 		)
-		VALUE (#{title},#{realnameUser},#{link},#{content},#{createdDate},#{idUser})
+		VALUE (#{title},#{realnameUser},#{link},#{imageUrl},#{content},#{createdDate},#{idUser})
 	</insert>
     <select id="queryListForComplaintWallTopics" resultType="com.functionwall.pojo.model.Topic">
 		SELECT
