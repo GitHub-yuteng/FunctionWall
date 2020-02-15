@@ -54,7 +54,10 @@ public class TopicServiceImpl implements TopicService {
         topic.setLink(link);
         topic.setImageUrl(imageUrl);
         topic.setContent(content);
-        topic.setCreatedDate(new Date());
+        System.out.println("-------------------");
+        Date time = new Date();
+        System.out.println(time);
+        topic.setCreatedDate(time);
         topic.setIdUser(Long.parseLong(userId));
 
         if (category.equals(ConstantField.LOVEWALL)) {

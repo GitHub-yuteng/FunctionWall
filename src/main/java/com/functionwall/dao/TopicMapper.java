@@ -1,11 +1,8 @@
 package com.functionwall.dao;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.functionwall.pojo.model.Topic;
-import org.apache.ibatis.annotations.Mapper;
 
-import java.util.List;
+public interface TopicMapper extends BaseMapper<Topic>{
 
-public interface TopicMapper {
-
-    List<Topic> select
 }
