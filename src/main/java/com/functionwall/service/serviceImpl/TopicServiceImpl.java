@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 /**
  * @author Yu
@@ -43,11 +44,12 @@ public class TopicServiceImpl implements TopicService {
     }
 
     @Override
-    public void save(String title, String category, String content, String userId) {
+    public void save(String title, String category, String realnameUser, String link, String content, String userId) {
 
         Topic topic = new Topic();
         topic.setTitle(title);
-        topic.setCategory(category);
+        topic.setRealnameUser(realnameUser);
+        topic.setLink(link);
         topic.setContent(content);
         topic.setCreatedDate(new Date());
         topic.setIdUser(Long.parseLong(userId));

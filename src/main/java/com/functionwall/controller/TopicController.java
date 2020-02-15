@@ -45,11 +45,13 @@ public class TopicController {
     @PostMapping(value = "/content")
     public View saveTopic(@RequestParam String title,
                           @RequestParam String category,
+                          @RequestParam String realnameUser,
+                          @RequestParam(required = false,defaultValue = "") String link,
                           @RequestParam String content,
                           @RequestParam String userId,
                           HttpServletRequest request) {
         String contextPath = request.getContextPath();
-        getTopicService().save(title, category, content, userId);
+        getTopicService().save(title, category,realnameUser,link,content, userId);
 
         if (ConstantField.LOVEWALL.equals(category)) {
             return new RedirectView(contextPath + "/topic/love-wall");

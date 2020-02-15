@@ -57,8 +57,12 @@
                                     <a href="#" class="smoothie">
                                         <img src="/assets/images/blog/blog-1.jpg" alt="Image" class="img-responsive smoothie"></a>
                                     <div class="hover-overlay smoothie text-center">
-                                        <div class="vertical-align-bottom">
+                                        <div class="vertical-align-top">
                                             <h5 th:text="${info.title}"></h5><br/>
+                                        </div>
+                                        <div class="vertical-align-bottom">
+                                            <span class="item-category-span" th:text="'姓名：'+${info.realnameUser}"></span>
+                                            <span class="item-category-span" th:text="'联系方式：'+${info.link}"></span>
                                             <span class="item-category-span" th:text="${#dates.format(info.createdDate, 'yyyy-MM-dd')}"></span>
                                         </div>
                                     </div>
