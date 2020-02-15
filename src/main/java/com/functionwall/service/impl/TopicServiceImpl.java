@@ -4,6 +4,8 @@ import com.functionwall.constant.ConstantField;
 import com.functionwall.dao.ComplaintWallMapper;
 import com.functionwall.dao.LoveWallMapper;
 import com.functionwall.dao.UserMapper;
+import com.functionwall.exception.FunctionWallErrorCode;
+import com.functionwall.exception.FunctionWallRuntimeException;
 import com.functionwall.pojo.model.Topic;
 import com.functionwall.service.TopicService;
 import com.github.pagehelper.PageHelper;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 /**
  * @author Yu
@@ -42,20 +45,24 @@ public class TopicServiceImpl implements TopicService {
     }
 
     @Override
-    public void save(String title, String category, String content, String userId) {
+    public void save(String title, String category, String realnameUser, String link, String imageUrl, String content,
+                     String userId) {
 
         Topic topic = new Topic();
         topic.setTitle(title);
-        topic.setCategory(category);
+        topic.setRealnameUser(realnameUser);
+        topic.setLink(link);
+        topic.setImageUrl(imageUrl);
         topic.setContent(content);
         topic.setCreatedDate(new Date());
         topic.setIdUser(Long.parseLong(userId));
 
         if (category.equals(ConstantField.LOVEWALL)) {
             getLoveWallMapper().save(topic);
-        }
-        if (category.equals(ConstantField.COMPLAINTWALL)) {
+        } else if (category.equals(ConstantField.COMPLAINTWALL)) {
             getComplaintWallMapper().save(topic);
+        } else {
+            throw new FunctionWallRuntimeException(FunctionWallErrorCode.CATEGORY_IS_NULL);
         }
     }
 

@@ -15,11 +15,14 @@ import org.slf4j.LoggerFactory;
 public enum FunctionWallErrorCode {
     UNKONWN_ERROR("999999"),
 
+    CATEGORY_IS_NULL("30001"),
+
     LOG_ID_IS_NULL("70001"),
 
 
-    REGISTER_PASSWORD_MD5_ERROR("MD5");
-    ;
+
+
+    REGISTER_PASSWORD_MD5_ERROR("MD5");;
 
     /**
      * 创建运行时异常.<br>

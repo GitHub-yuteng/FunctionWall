@@ -14,27 +14,29 @@ CREATE TABLE `user`
 
 CREATE TABLE `topic_lovewall`
 (
-  `id`           BIGINT(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `title`        VARCHAR(32)   NOT NULL,
-  `category`     VARCHAR(16)   NOT NULL,
-  `content`      VARCHAR(1024) NOT NULL,
-  `image`        MEDIUMBLOB,
-  `created_date` DATETIME DEFAULT NULL,
-  `id_user`      BIGINT(20) DEFAULT NULL,
+  `id`            BIGINT (20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `title`         VARCHAR(32)   NOT NULL,
+  `realname_user` VARCHAR(16)   NOT NULL,
+  `link`          VARCHAR(16)  DEFAULT NULL,
+  `content`       VARCHAR(1024) NOT NULL,
+  `imageUrl`      VARCHAR(256) DEFAULT NULL,
+  `created_date`  DATETIME      NOT NULL,
+  `id_user`       BIGINT (20) NOT NULL,
   FOREIGN KEY (`id_user`) REFERENCES `user` (`id`)
-) ENGINE=INNODB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+) ENGINE = INNODB AUTO_INCREMENT = 30 DEFAULT CHARSET = utf8;
 
 CREATE TABLE `topic_complaintwall`
 (
-  `id`           BIGINT(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `title`        VARCHAR(32)   NOT NULL,
-  `category`     VARCHAR(16)   NOT NULL,
-  `content`      VARCHAR(1024) NOT NULL,
-  `image`        MEDIUMBLOB,
-  `created_date` DATETIME DEFAULT NULL,
-  `id_user`      BIGINT(20) DEFAULT NULL,
+  `id`            BIGINT (20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `title`         VARCHAR(32)   NOT NULL,
+  `realname_user` VARCHAR(16)   NOT NULL,
+  `link`          VARCHAR(16)  DEFAULT NULL,
+  `content`       VARCHAR(1024) NOT NULL,
+  `imageUrl`      VARCHAR(256) DEFAULT NULL,
+  `created_date`  DATETIME      NOT NULL,
+  `id_user`       BIGINT (20) NOT NULL,
   FOREIGN KEY (`id_user`) REFERENCES `user` (`id`)
-) ENGINE=INNODB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+) ENGINE = INNODB AUTO_INCREMENT = 30 DEFAULT CHARSET = utf8;
 
 CREATE TABLE `logs`
 (

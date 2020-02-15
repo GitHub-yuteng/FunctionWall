@@ -108,7 +108,7 @@
                                         <form th:action="@{/user/username}" method="post">
                                             <input type="hidden" name="_method" value="put"/>
                                             <div class="input-group">
-                                                <input class="form-control" type="text" name="username" placeholder="请输入更改的网名"/>
+                                                <input class="form-control" type="text" name="username" placeholder="请输入更改的网名" maxlength="12"/>
                                                 <input type="hidden" name="userId" th:value="${session.user.id}"/>
                                                 <span class="input-group-btn">
                                                     <input class="btn btn-primary mt30 pull-right" type="submit" value="✓"/>
