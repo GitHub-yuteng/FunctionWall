@@ -1,5 +1,8 @@
 package com.functionwall.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.functionwall.dao.LostFoundMapper;
 import com.functionwall.pojo.model.Item;
@@ -7,6 +10,7 @@ import com.functionwall.service.LostFoundSerivce;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.parser.Entity;
 import java.util.Date;
 
 /**
@@ -30,7 +34,7 @@ public class LostFoundSerivceImpl implements LostFoundSerivce {
      * @param category 物品分类
      */
     @Override
-    public void save(String realnameUser, String link, String type, String category, String content, String imageUrl, String userId) {
+    public void save(String realnameUser, String link, Integer type, String category, String content, String imageUrl, String userId) {
 
         Item item = new Item();
         item.setRealnameUser(realnameUser);
@@ -52,8 +56,13 @@ public class LostFoundSerivceImpl implements LostFoundSerivce {
      * @return
      */
     @Override
-    public Page<Item> queryListForAllItem(Integer pageNo, Integer pageSize) {
-        Page<Item> itemIPage = (Page<Item>) getLostFoundMapper().selectPage(new Page<>(pageNo, pageSize), null);
+    public Page<Item> queryListForAllItem(Integer type, Integer pageNo, Integer pageSize) {
+        LambdaQueryWrapper<Item> eq = new QueryWrapper<Item>().lambda();
+        if (type == 1 || type == 2) {
+            eq.eq(Item::getType, type);
+        }
+        eq.orderByDesc(Item::getCreatedDate);
+        Page<Item> itemIPage = (Page<Item>) getLostFoundMapper().selectPage(new Page<>(pageNo, pageSize), eq);
         return itemIPage;
     }
 }

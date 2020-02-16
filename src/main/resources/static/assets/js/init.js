@@ -86,10 +86,10 @@ jQuery(document).ready(function () {
                 account: $('#account').val(),
                 password: $('#password').val(),
             }, function (data) {
-                if(data.code == '200'){
+                if (data.code == '200') {
                     alert("注册成功");
                     window.location.href = "/login";
-                }else {
+                } else {
                     alert("注册失败");
                 }
             });
@@ -212,7 +212,8 @@ jQuery(document).ready(function () {
                 $(this).addClass('active');
                 var selector = $(this).attr('data-filter');
                 masonry_portfolio.isotope({filter: selector});
-                return false;
+                var url = $(this).attr("href");
+                location.href = url;
             });
         }
     };

@@ -11,8 +11,8 @@ import java.util.List;
  */
 public interface LostFoundSerivce {
 
-    void save(String realnameUser, String link, String type, String category, String content, String imageUrl,
+    void save(String realnameUser, String link, Integer type, String category, String content, String imageUrl,
               String userId);
 
-    Page<Item> queryListForAllItem(Integer pageNo, Integer pageSize);
+    Page<Item> queryListForAllItem(Integer type, Integer pageNo, Integer pageSize);
 }

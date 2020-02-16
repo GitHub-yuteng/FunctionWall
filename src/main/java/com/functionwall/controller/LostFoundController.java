@@ -11,10 +11,7 @@ import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.RedirectView;
@@ -61,7 +58,7 @@ public class LostFoundController {
     @PostMapping(value = "/content")
     public View saveTopic(@RequestParam String realnameUser,
                           @RequestParam(required = false, defaultValue = "") String link,
-                          @RequestParam String type,
+                          @RequestParam Integer type,
                           @RequestParam String category,
                           @RequestParam String content,
                           @RequestParam(required = false, defaultValue = "") MultipartFile image,
@@ -79,7 +76,6 @@ public class LostFoundController {
         return new RedirectView(contextPath + "/lost-found/item/all");
     }
 
-
     /**
      * 分页获取全部 Item
      *
@@ -88,14 +84,16 @@ public class LostFoundController {
      * @param model
      * @return
      */
-    @GetMapping(value = "/item/all")
-    public String queryListForAllItem(@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo,
+    @GetMapping(value = {"/item/{type:1|2}"})
+    public String queryListForAllItem(@PathVariable(required = false) Integer type,
+                                      @RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo,
                                       @RequestParam(value = "pageSize", defaultValue = "9") Integer pageSize,
                                       Model model) {
-        Page<Item> itemInfo = getLostFoundSerivce().queryListForAllItem(pageNo, pageSize);
+        Page<Item> itemInfo = getLostFoundSerivce().queryListForAllItem(type, pageNo, pageSize);
         model.addAttribute("itemInfo", itemInfo);
         model.addAttribute("currPage", itemInfo.getCurrent());
         model.addAttribute("pages", itemInfo.getPages());
+        model.addAttribute("type", type);
         return "lost-found";
     }
 

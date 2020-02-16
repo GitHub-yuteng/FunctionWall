@@ -52,9 +52,8 @@
                     <div class="text-center match-height">
                         <ul class="masonry-portfolio-filter list-unstyled list-inline wow fadeIn text-center vertical-center-js"
                             data-wow-delay="0.2s">
-                            <li><a class="btn btn-primary btn-transparent active" th:href="@{/lost-found/item/all}">全部</a></li>
-                            <li><a class="btn btn-primary btn-transparent" th:href="@{/lost-found/item/lost}">丢的</a></li>
-                            <li><a class="btn btn-primary btn-transparent" th:href="@{/lost-found/item/pick}">捡的</a></li>
+                            <li><a class="btn btn-primary btn-transparent" th:classappend="${type == 1} ? 'active' : ''" th:href="@{/lost-found/item/1}">寻物启事</a></li>
+                            <li><a class="btn btn-primary btn-transparent" th:classappend="${type == 2} ? 'active' : ''" th:href="@{/lost-found/item/2}">招领启事</a></li>
                         </ul>
                     </div>
                 </div>
