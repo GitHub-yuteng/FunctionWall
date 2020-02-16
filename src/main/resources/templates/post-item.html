@@ -11,7 +11,7 @@
 
     <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico" type="image/x-icon"/>
 
-    <title>Post Topic</title>
+    <title>Post Item</title>
     <link href="/assets/js/jquery.min.js" rel="stylesheet">
     <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/bootstrap/js/bootstrap.min.js" rel="stylesheet">
@@ -45,7 +45,7 @@
         <div class="section-inner">
             <div class="row mb30 text-center">
                 <div class="col-sm-12">
-                    <h3 class="section-title text-center">Post Your Text</h3>
+                    <h3 class="section-title text-center">Post Your Item</h3>
                     <p class="section-sub-title text-center">The very best in here place.</p>
                 </div>
             </div>
@@ -53,15 +53,20 @@
                 <div class="row mb90">
                     <div class="row">
                         <div class="col-sm-8">
-                            <form method="post" th:action="@{/topic/content}" class="main-contact-form" enctype="multipart/form-data">
+                            <form method="post" th:action="@{/lost-found/content}" class="main-contact-form" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label>标题</label>
                                     <input type="text" class="form-control" id="title" name="title" placeholder="标题" maxlength="12" required
                                            data-validation-required-message="请输入标题.">
                                 </div>
                                 <div class="form-group">
+                                    <label>类型</label>
+                                    <input type="text" class="form-control" id="type" name="type" placeholder="丢/捡" maxlength="4" required
+                                           data-validation-required-message="请输入分类.">
+                                </div>
+                                <div class="form-group">
                                     <label>分类</label>
-                                    <input type="text" class="form-control" id="category" name="category" placeholder="表白墙/吐槽墙" maxlength="6" required
+                                    <input type="text" class="form-control" id="category" name="category" placeholder="分类" maxlength="6" required
                                            data-validation-required-message="请输入分类.">
                                 </div>
                                 <div class="form-group">

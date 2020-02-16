@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.functionwall.dao.LostFoundMapper">
+	<sql id="tablename">item</sql>
+	<sql id="insertFields">realname_user,link,type,category,content,image_url,created_date,id_user</sql>
+	<sql id="selectFields">id,realname_user,link,type,category,content,image_url,created_date,id_user</sql>
+
+</mapper>

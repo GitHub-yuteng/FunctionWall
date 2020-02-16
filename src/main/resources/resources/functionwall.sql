@@ -38,6 +38,23 @@ CREATE TABLE `topic_complaintwall`
   FOREIGN KEY (`id_user`) REFERENCES `user` (`id`)
 ) ENGINE = INNODB AUTO_INCREMENT = 30 DEFAULT CHARSET = utf8;
 
+CREATE TABLE `item`
+(
+  `id`            bigint(20) NOT NULL AUTO_INCREMENT,
+  `realname_user` varchar(16)   NOT NULL,
+  `link`          varchar(16)  DEFAULT NULL,
+  `type`          varchar(16)  DEFAULT NULL,
+  `category`      varchar(16)  DEFAULT NULL,
+  `content`       varchar(1024) NOT NULL,
+  `image_url`     varchar(256) DEFAULT NULL,
+  `created_date`  datetime      NOT NULL,
+  `id_user`       bigint(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY             `id_user` (`id_user`),
+  CONSTRAINT `item_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8
+
+
 CREATE TABLE `logs`
 (
   `id`       INT(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键编号',

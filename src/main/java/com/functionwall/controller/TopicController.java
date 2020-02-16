@@ -114,7 +114,7 @@ public class TopicController {
 
 
     @GetMapping(value = "/post")
-    public String topic() {
+    public String topicPost() {
         return "post-topic";
     }
 }
