@@ -1,5 +1,6 @@
 package com.functionwall.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.functionwall.constant.ConstantField;
 import com.functionwall.pojo.model.Item;
 import com.functionwall.pojo.model.Topic;
@@ -91,8 +92,10 @@ public class LostFoundController {
     public String queryListForAllItem(@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo,
                                       @RequestParam(value = "pageSize", defaultValue = "9") Integer pageSize,
                                       Model model) {
-        List<Item> itemInfo = getLostFoundSerivce().queryListForAllItem(pageNo, pageSize);
+        Page<Item> itemInfo = getLostFoundSerivce().queryListForAllItem(pageNo, pageSize);
         model.addAttribute("itemInfo", itemInfo);
+        model.addAttribute("currPage", itemInfo.getCurrent());
+        model.addAttribute("pages", itemInfo.getPages());
         return "lost-found";
     }
 

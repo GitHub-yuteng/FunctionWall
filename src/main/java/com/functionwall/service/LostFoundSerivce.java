@@ -1,5 +1,6 @@
 package com.functionwall.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.functionwall.pojo.model.Item;
 import com.github.pagehelper.PageInfo;
 
@@ -13,5 +14,5 @@ public interface LostFoundSerivce {
     void save(String realnameUser, String link, String type, String category, String content, String imageUrl,
               String userId);
 
-    List<Item> queryListForAllItem(Integer pageNo, Integer pageSize);
+    Page<Item> queryListForAllItem(Integer pageNo, Integer pageSize);
 }

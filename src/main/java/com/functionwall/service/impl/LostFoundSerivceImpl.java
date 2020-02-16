@@ -1,6 +1,5 @@
 package com.functionwall.service.impl;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.functionwall.dao.LostFoundMapper;
 import com.functionwall.pojo.model.Item;
@@ -9,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author Yu
@@ -54,8 +52,8 @@ public class LostFoundSerivceImpl implements LostFoundSerivce {
      * @return
      */
     @Override
-    public List<Item> queryListForAllItem(Integer pageNo, Integer pageSize) {
-        IPage<Item> itemIPage = getLostFoundMapper().selectPage(new Page<>(pageNo, pageSize), null);
-        return itemIPage.getRecords();
+    public Page<Item> queryListForAllItem(Integer pageNo, Integer pageSize) {
+        Page<Item> itemIPage = (Page<Item>) getLostFoundMapper().selectPage(new Page<>(pageNo, pageSize), null);
+        return itemIPage;
     }
 }

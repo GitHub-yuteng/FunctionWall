@@ -52,9 +52,9 @@
                     <div class="text-center match-height">
                         <ul class="masonry-portfolio-filter list-unstyled list-inline wow fadeIn text-center vertical-center-js"
                             data-wow-delay="0.2s">
-                            <li><a class="btn btn-primary btn-transparent active" th:href="@{/lost-found/item/all}" data-filter="*">全部</a></li>
-                            <li><a class="btn btn-primary btn-transparent" th:href="@{/lost-found/item/lost}" data-filter=".apps">丢的</a></li>
-                            <li><a class="btn btn-primary btn-transparent" th:href="@{/lost-found/item/pick}" data-filter=".design">捡的</a></li>
+                            <li><a class="btn btn-primary btn-transparent active" th:href="@{/lost-found/item/all}">全部</a></li>
+                            <li><a class="btn btn-primary btn-transparent" th:href="@{/lost-found/item/lost}">丢的</a></li>
+                            <li><a class="btn btn-primary btn-transparent" th:href="@{/lost-found/item/pick}">捡的</a></li>
                         </ul>
                     </div>
                 </div>
@@ -68,10 +68,11 @@
                                     <div>
                                         <div class="masonry-portfolio-items">
                                             <div class="row">
-                                                <div class="col-sm-4 masonry-portfolio-item mb30 apps" th:each="info : ${itemInfo}">
+                                                <div class="col-sm-4 masonry-portfolio-item mb30 apps" th:each="info : ${itemInfo.records}">
                                                     <div class="hover-effect smoothie">
                                                         <a href="#" class="smoothie">
-                                                            <img th:src="${info.imageUrl}" alt="Image" onerror="this.src='/assets/images/blog-4.jpeg';this.onerror=null"
+                                                            <img th:src="${info.imageUrl}" alt="Image"
+                                                                 onerror="this.src='/assets/images/blog-4.jpeg';this.onerror=null"
                                                                  class="img-responsive smoothie"></a>
                                                         <div class="hover-overlay smoothie text-center">
                                                             <div class="vertical-align-top">
@@ -99,9 +100,15 @@
                         </div>
                     </div>
                 </div>
+                <!--分页-->
+                <div class="text-center col-sm-12" id="pagearea">
+                    <ul class="pagination">
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
+
     <div th:replace="footer::footer"></div>
 
 </div>
@@ -110,8 +117,21 @@
 <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="/assets/js/owl-carousel.js"></script>
 <script src="/assets/js/plugins.js"></script>
-
 <script src="/assets/js/init.js"></script>
+<script src="/js/page.js"></script>
+<script th:inline="javascript">
+    $(function () {
+        var currPage = [[${currPage}]];
+        var totalPage = [[${pages}]];
+        $(".pagination").createPage({
+            totalPage: totalPage,
+            currPage: currPage,
+            backFn: function (p) {
+                location.href = "/lost-found/item/all?pageNo=" + p;
+            }
+        });
+    })
+</script>
 
 </body>
 </html>
