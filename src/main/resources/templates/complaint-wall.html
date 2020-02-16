@@ -57,22 +57,26 @@
                                         <div class="col-sm-4 masonry-portfolio-item mb30 apps" th:each="info : ${complaintInfo.list}">
                                             <div class="hover-effect smoothie mb20">
                                                 <a href="#" class="smoothie">
-                                                    <img th:src="${info.imageUrl}" alt="Image" class="img-responsive smoothie"></a>
+                                                    <img th:src="${info.imageUrl}" alt="Image"
+                                                         onerror="this.src='/assets/images/blog-4.jpeg';this.onerror=null" class="img-responsive smoothie"></a>
                                                 <div class="hover-overlay smoothie text-center">
-                                                    <div class="vertical-align-bottom">
+                                                    <div class="vertical-align-top">
                                                         <h5 th:text="${info.title}"></h5><br/>
-                                                        <span class="item-category-span"
-                                                              th:text="${#dates.format(info.createdDate, 'yyyy-MM-dd')}"></span>
+                                                    </div>
+                                                    <div class="vertical-align-bottom">
+                                                        <span class="item-category-span" th:text="'姓名：'+${info.realnameUser}"></span>
+                                                        <span class="item-category-span" th:text="'联系方式：'+${info.link}"></span>
+                                                        <span class="item-category-span" th:text="${#dates.format(info.createdDate, 'yyyy-MM-dd')}"></span>
                                                     </div>
                                                 </div>
                                                 <div class="hover-caption dark-overlay smoothie text-center">
                                                     <div class="vertical-align-top">
-                                                        <p class="mb20" th:text="${info.content}"></p>
+                                                        <p class="mb20" style="word-break: break-word;" th:text="${info.content}"></p>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="post-details">
-                                                <p class="mb20" th:text="${info.content}"></p>
+                                                <p class="mb20" style="word-break: break-word;" th:text="${info.content}"></p>
                                             </div>
                                         </div>
                                     </div>
