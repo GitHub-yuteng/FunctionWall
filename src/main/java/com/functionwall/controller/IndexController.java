@@ -17,15 +17,6 @@ public class IndexController {
         return "index";
     }
 
-    @GetMapping(value = "/masonry")
-    public String indexMasonry() {
-        return "index-masonry";
-    }
-
-    @GetMapping(value = "/agency")
-    public String indexAgency() {
-        return "index-agency";
-    }
 
     @GetMapping(value = "/my-info")
     public String aboutUs() {

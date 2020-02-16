@@ -1,5 +1,6 @@
-package com.functionwall.interceptor;
+package com.functionwall.config;
 
+import com.functionwall.interceptor.LogInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;

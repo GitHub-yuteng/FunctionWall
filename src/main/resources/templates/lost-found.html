@@ -52,9 +52,9 @@
                     <div class="text-center match-height">
                         <ul class="masonry-portfolio-filter list-unstyled list-inline wow fadeIn text-center vertical-center-js"
                             data-wow-delay="0.2s">
-                            <li><a class="btn btn-primary btn-transparent active" href="#" data-filter="*">全部</a></li>
-                            <li><a class="btn btn-primary btn-transparent" href="#" data-filter=".apps">丢的</a></li>
-                            <li><a class="btn btn-primary btn-transparent" href="#" data-filter=".design">捡的</a></li>
+                            <li><a class="btn btn-primary btn-transparent active" th:href="@{/lost-found/item/all}" data-filter="*">全部</a></li>
+                            <li><a class="btn btn-primary btn-transparent" th:href="@{/lost-found/item/lost}" data-filter=".apps">丢的</a></li>
+                            <li><a class="btn btn-primary btn-transparent" th:href="@{/lost-found/item/pick}" data-filter=".design">捡的</a></li>
                         </ul>
                     </div>
                 </div>
@@ -68,173 +68,25 @@
                                     <div>
                                         <div class="masonry-portfolio-items">
                                             <div class="row">
-                                                <div class="col-sm-4 masonry-portfolio-item mb30 apps">
+                                                <div class="col-sm-4 masonry-portfolio-item mb30 apps" th:each="info : ${itemInfo}">
                                                     <div class="hover-effect smoothie">
                                                         <a href="#" class="smoothie">
-                                                            <img src="/assets/images/portfolio/folio-1.jpeg" alt="Image"
+                                                            <img th:src="${info.imageUrl}" alt="Image" onerror="this.src='/assets/images/blog-4.jpeg';this.onerror=null"
                                                                  class="img-responsive smoothie"></a>
                                                         <div class="hover-overlay smoothie text-center">
+                                                            <div class="vertical-align-top">
+                                                                <h5 th:text="${info.category}"></h5><br/>
+                                                            </div>
                                                             <div class="vertical-align-bottom">
-                                                                <h4>Bespoke Envelope Design</h4>
+                                                                <span class="item-category-span" th:text="'姓名：'+${info.realnameUser}"></span>
+                                                                <span class="item-category-span" th:text="'联系方式：'+${info.link}"></span>
+                                                                <span class="item-category-span"
+                                                                      th:text="${#dates.format(info.createdDate, 'yyyy-MM-dd')}"></span>
                                                             </div>
                                                         </div>
                                                         <div class="hover-caption dark-overlay smoothie text-center">
-                                                            <div class="vertical-align-bottom">
-                                                                <a href="single-portfolio.html" class="btn btn-primary mb20">Details</a>
-                                                                <a href="/assets/images/portfolio/folio-1.jpeg"
-                                                                   class="lb-link btn btn-primary mb20">Zoom</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4 masonry-portfolio-item mb30 design">
-                                                    <div class="hover-effect smoothie">
-                                                        <a href="#" class="smoothie">
-                                                            <img src="/assets/images/portfolio/folio-2.jpeg" alt="Image"
-                                                                 class="img-responsive smoothie"></a>
-                                                        <div class="hover-overlay smoothie text-center">
-                                                            <div class="vertical-align-bottom">
-                                                                <h4>Business Cards Design</h4>
-                                                            </div>
-                                                        </div>
-                                                        <div class="hover-caption dark-overlay smoothie text-center">
-                                                            <div class="vertical-align-bottom">
-                                                                <a href="single-portfolio.html" class="btn btn-primary mb20">Details</a>
-                                                                <a href="/assets/images/portfolio/folio-2.jpeg"
-                                                                   class="lb-link btn btn-primary mb20">View Image <i class="fa fa-plus smoothie"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4 masonry-portfolio-item mb30 photography">
-                                                    <div class="hover-effect smoothie">
-                                                        <a href="#" class="smoothie">
-                                                            <img src="/assets/images/portfolio/folio-3.jpeg" alt="Image"
-                                                                 class="img-responsive smoothie"></a>
-                                                        <div class="hover-overlay smoothie text-center">
-                                                            <div class="vertical-align-bottom">
-                                                                <h4>Business Cards Design 2</h4>
-                                                            </div>
-                                                        </div>
-                                                        <div class="hover-caption dark-overlay smoothie text-center">
-                                                            <div class="vertical-align-bottom">
-                                                                <a href="single-portfolio.html" class="btn btn-primary mb20">Details</a>
-                                                                <a href="/assets/images/portfolio/folio-3.jpeg"
-                                                                   class="lb-link btn btn-primary mb20">View Image <i class="fa fa-plus smoothie"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4 masonry-portfolio-item mb30 apps">
-                                                    <div class="hover-effect smoothie">
-                                                        <a href="#" class="smoothie">
-                                                            <img src="/assets/images/portfolio/folio-4.jpeg" alt="Image"
-                                                                 class="img-responsive smoothie"></a>
-                                                        <div class="hover-overlay smoothie text-center">
-                                                            <div class="vertical-align-bottom">
-                                                                <h4>Mail Design</h4>
-                                                            </div>
-                                                        </div>
-                                                        <div class="hover-caption dark-overlay smoothie text-center">
-                                                            <div class="vertical-align-bottom">
-                                                                <a href="single-portfolio.html" class="btn btn-primary mb20">Details</a>
-                                                                <a href="/assets/images/portfolio/folio-4.jpeg"
-                                                                   class="lb-link btn btn-primary mb20">View Image <i class="fa fa-plus smoothie"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4 masonry-portfolio-item mb30 video">
-                                                    <div class="hover-effect smoothie">
-                                                        <a href="#" class="smoothie">
-                                                            <img src="/assets/images/portfolio/folio-5.jpeg" alt="Image"
-                                                                 class="img-responsive smoothie"></a>
-                                                        <div class="hover-overlay smoothie text-center">
-                                                            <div class="vertical-align-bottom">
-                                                                <h4>Brochure Design</h4>
-                                                            </div>
-                                                        </div>
-                                                        <div class="hover-caption dark-overlay smoothie text-center">
-                                                            <div class="vertical-align-bottom">
-                                                                <a href="single-portfolio.html" class="btn btn-primary mb20">Details</a>
-                                                                <a href="/assets/images/portfolio/folio-5.jpeg"
-                                                                   class="lb-link btn btn-primary mb20">View Image <i class="fa fa-plus smoothie"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4 masonry-portfolio-item mb30 design">
-                                                    <div class="hover-effect smoothie">
-                                                        <a href="#" class="smoothie">
-                                                            <img src="/assets/images/portfolio/folio-6.jpeg" alt="Image"
-                                                                 class="img-responsive smoothie"></a>
-                                                        <div class="hover-overlay smoothie text-center">
-                                                            <div class="vertical-align-bottom">
-                                                                <h4>Multimedia Design</h4>
-                                                            </div>
-                                                        </div>
-                                                        <div class="hover-caption dark-overlay smoothie text-center">
-                                                            <div class="vertical-align-bottom">
-                                                                <a href="single-portfolio.html" class="btn btn-primary mb20">Details</a>
-                                                                <a href="/assets/images/portfolio/folio-6.jpeg"
-                                                                   class="lb-link btn btn-primary mb20">View Image <i class="fa fa-plus smoothie"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4 masonry-portfolio-item mb30 apps">
-                                                    <div class="hover-effect smoothie">
-                                                        <a href="#" class="smoothie">
-                                                            <img src="/assets/images/portfolio/folio-7.jpeg" alt="Image"
-                                                                 class="img-responsive smoothie"></a>
-                                                        <div class="hover-overlay smoothie text-center">
-                                                            <div class="vertical-align-bottom">
-                                                                <h4>Mail Design</h4>
-                                                            </div>
-                                                        </div>
-                                                        <div class="hover-caption dark-overlay smoothie text-center">
-                                                            <div class="vertical-align-bottom">
-                                                                <a href="single-portfolio.html" class="btn btn-primary mb20">Details</a>
-                                                                <a href="/assets/images/portfolio/folio-7.jpeg"
-                                                                   class="lb-link btn btn-primary mb20">View Image <i class="fa fa-plus smoothie"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4 masonry-portfolio-item mb30 design">
-                                                    <div class="hover-effect smoothie">
-                                                        <a href="#" class="smoothie">
-                                                            <img src="/assets/images/portfolio/folio-8.jpeg" alt="Image"
-                                                                 class="img-responsive smoothie"></a>
-                                                        <div class="hover-overlay smoothie text-center">
-                                                            <div class="vertical-align-bottom">
-                                                                <h4>Brochure Design</h4>
-                                                            </div>
-                                                        </div>
-                                                        <div class="hover-caption dark-overlay smoothie text-center">
-                                                            <div class="vertical-align-bottom">
-                                                                <a href="single-portfolio.html" class="btn btn-primary mb20">Details</a>
-                                                                <a href="/assets/images/portfolio/folio-8.jpeg"
-                                                                   class="lb-link btn btn-primary mb20">View Image <i class="fa fa-plus smoothie"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4 masonry-portfolio-item mb30 design">
-                                                    <div class="hover-effect smoothie">
-                                                        <a href="#" class="smoothie">
-                                                            <img src="/assets/images/portfolio/folio-9.jpeg" alt="Image"
-                                                                 class="img-responsive smoothie"></a>
-                                                        <div class="hover-overlay smoothie text-center">
-                                                            <div class="vertical-align-bottom">
-                                                                <h4>Multimedia Design</h4>
-                                                            </div>
-                                                        </div>
-                                                        <div class="hover-caption dark-overlay smoothie text-center">
-                                                            <div class="vertical-align-bottom">
-                                                                <a href="single-portfolio.html" class="btn btn-primary mb20">Details</a>
-                                                                <a href="/assets/images/portfolio/folio-9.jpeg"
-                                                                   class="lb-link btn btn-primary mb20">View Image <i class="fa fa-plus smoothie"></i></a>
+                                                            <div class="vertical-align-top">
+                                                                <p class="mb20" style="word-break: break-word;" th:text="${info.content}"></p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -250,7 +102,6 @@
             </div>
         </div>
     </section>
-
     <div th:replace="footer::footer"></div>
 
 </div>

@@ -1,7 +1,9 @@
 package com.functionwall.functionwall;
 
 import com.functionwall.dao.ComplaintWallMapper;
+import com.functionwall.pojo.model.Item;
 import com.functionwall.pojo.model.Topic;
+import com.functionwall.service.LostFoundSerivce;
 import com.functionwall.service.TopicService;
 import com.github.pagehelper.PageInfo;
 import org.junit.jupiter.api.Test;
@@ -15,9 +17,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.File;
-import java.util.Date;
-import java.util.TimeZone;
-import java.util.UUID;
+import java.util.*;
 
 @SpringBootTest
 class FunctionwallApplicationTests {
@@ -27,6 +27,9 @@ class FunctionwallApplicationTests {
 
     @Autowired
     TopicService topicService;
+
+    @Autowired
+    LostFoundSerivce lostFoundSerivce;
 
     @Test
     void mailSender() {
@@ -62,9 +65,18 @@ class FunctionwallApplicationTests {
 
 
     @Test
-    void testTopic() {
-        for (int i = 0; i < 1; i++) {
+    void testItem() {
+        for (int i = 0; i < 20; i++) {
+//            lostFoundSerivce.save("lost:" + UUID.randomUUID().toString().substring(1, 5), "123", "丢", "钱包",
+//                    "123", "http://q5qjjet1i.bkt.clouddn.com/e424766467914ef38534d4da465eca3c.jpeg", "58");
+        }
+    }
 
+    @Test
+    void testQueryItem() {
+        for (int i = 0; i < 20; i++) {
+//            List<Item> list = lostFoundSerivce.queryListForAllItem(1, 9);
+//            list.forEach(System.out::println);
         }
     }
 }

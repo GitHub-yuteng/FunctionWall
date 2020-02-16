@@ -75,7 +75,7 @@ public class LostFoundController {
             e.printStackTrace();
         }
 
-        return new RedirectView(contextPath + "/lost-found/item");
+        return new RedirectView(contextPath + "/lost-found/item/all");
     }
 
 
