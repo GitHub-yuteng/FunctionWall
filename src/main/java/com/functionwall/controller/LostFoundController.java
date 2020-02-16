@@ -1,11 +1,15 @@
 package com.functionwall.controller;
 
 import com.functionwall.constant.ConstantField;
+import com.functionwall.pojo.model.Item;
+import com.functionwall.pojo.model.Topic;
 import com.functionwall.service.LostFoundSerivce;
 import com.functionwall.service.QiniuService;
+import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +20,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * @author Yu
@@ -74,19 +79,62 @@ public class LostFoundController {
     }
 
 
-    @GetMapping(value = "/post")
-    public String topicPost() {
-        return "post-item";
+    /**
+     * 分页获取全部 Item
+     *
+     * @param pageNo
+     * @param pageSize
+     * @param model
+     * @return
+     */
+    @GetMapping(value = "/item/all")
+    public String queryListForAllItem(@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo,
+                                      @RequestParam(value = "pageSize", defaultValue = "9") Integer pageSize,
+                                      Model model) {
+        List<Item> itemInfo = getLostFoundSerivce().queryListForAllItem(pageNo, pageSize);
+        model.addAttribute("itemInfo", itemInfo);
+        return "lost-found";
     }
 
-    @GetMapping(value = "/item")
-    public String lostFound() {
+
+    /**
+     * 分页获取丢失 Item
+     *
+     * @param pageNo
+     * @param pageSize
+     * @param model
+     * @return
+     */
+    @GetMapping(value = "/item/lost")
+    public String queryListForLostItem(@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo,
+                                       @RequestParam(value = "pageSize", defaultValue = "9") Integer pageSize,
+                                       Model model) {
+        return "lost-found";
+    }
+
+    /**
+     * 分页获取捡 Item
+     *
+     * @param pageNo
+     * @param pageSize
+     * @param model
+     * @return
+     */
+    @GetMapping(value = "/item/pick")
+    public String queryListForPickItem(@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo,
+                                       @RequestParam(value = "pageSize", defaultValue = "9") Integer pageSize,
+                                       Model model) {
         return "lost-found";
     }
 
     @GetMapping(value = "/item-fullwidth")
     public String lostFoundFullwidth() {
         return "lost-found-fullwidth";
+    }
+
+    @GetMapping(value = "/post")
+    public String topicPost() {
+        return "post-item";
     }
 
     @GetMapping(value = "/single-portfolio-video")
