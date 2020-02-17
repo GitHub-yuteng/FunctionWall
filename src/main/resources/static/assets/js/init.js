@@ -214,7 +214,8 @@ jQuery(document).ready(function () {
                 $(this).addClass('active');
                 var selector = $(this).attr('data-filter');
                 masonry_portfolio.isotope({filter: selector});
-                return false;
+                var url = $(this).attr("href");
+                location.href = url;
             });
         }
     };
