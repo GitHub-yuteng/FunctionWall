@@ -65,7 +65,7 @@ public class TopicController {
 
         try {
             String imageUrl = getQiniuService().saveImage(image);
-            getTopicService().save(title, category, realnameUser, link,imageUrl,content, userId);
+            getTopicService().save(title, category, realnameUser, link, imageUrl, content, userId);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -105,7 +105,7 @@ public class TopicController {
      */
     @GetMapping(value = "/complaint-wall")
     public String queryListForComplaintWallTopic(@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo,
-                                                 @RequestParam(value = "pageSize", defaultValue = "9") Integer pageSize,
+                                                 @RequestParam(value = "pageSize", defaultValue = "9", required = false) Integer pageSize,
                                                  Model model) {
         PageInfo<Topic> pageInfo = getTopicService().queryListForComplaintWallTopic(pageNo, pageSize);
         model.addAttribute("complaintInfo", pageInfo);

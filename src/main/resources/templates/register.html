@@ -62,6 +62,7 @@
                                             <div class="col-sm-8">
                                                 <form method="post" th:action="@{/register}" id="contactform" class="main-contact-form">
                                                     <div class="form-group">
+                                                        <p class="alert alert-danger" th:if="${msg} != null" th:text="${msg}"></p>
                                                         <input type="text" class="form-control col-md-4 mb20" name="realname"
                                                                placeholder="姓名" id="realname" required
                                                                data-validation-required-message="请输入您的姓名." maxlength="4"/>

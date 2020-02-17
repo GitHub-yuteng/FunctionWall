@@ -42,7 +42,7 @@ CREATE TABLE `item`
 (
   `id`            bigint(20) NOT NULL AUTO_INCREMENT,
   `realname_user` varchar(16)   NOT NULL,
-  `link`          varchar(16)  DEFAULT NULL,
+  `link`          tinyint(4) DEFAULT NULL,
   `type`          varchar(16)  DEFAULT NULL,
   `category`      varchar(16)  DEFAULT NULL,
   `content`       varchar(1024) NOT NULL,
@@ -52,7 +52,8 @@ CREATE TABLE `item`
   PRIMARY KEY (`id`),
   KEY             `id_user` (`id_user`),
   CONSTRAINT `item_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8
+
 
 
 CREATE TABLE `logs`

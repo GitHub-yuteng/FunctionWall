@@ -1,6 +1,5 @@
 package com.functionwall.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -10,7 +9,6 @@ import com.functionwall.service.LostFoundSerivce;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.parser.Entity;
 import java.util.Date;
 
 /**
@@ -49,7 +47,7 @@ public class LostFoundSerivceImpl implements LostFoundSerivce {
     }
 
     /**
-     * 分页获取全部Item
+     * 分页获取对应 Item
      *
      * @param pageNo
      * @param pageSize

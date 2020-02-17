@@ -89,6 +89,8 @@ jQuery(document).ready(function () {
                 if (data.code == '200') {
                     alert("注册成功");
                     window.location.href = "/login";
+                } else if (data.code == '50001') {
+                    alert("注册失败，该帐号已存在！");
                 } else {
                     alert("注册失败");
                 }
@@ -212,8 +214,7 @@ jQuery(document).ready(function () {
                 $(this).addClass('active');
                 var selector = $(this).attr('data-filter');
                 masonry_portfolio.isotope({filter: selector});
-                var url = $(this).attr("href");
-                location.href = url;
+                return false;
             });
         }
     };

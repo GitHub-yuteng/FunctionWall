@@ -20,6 +20,9 @@ public enum FunctionWallErrorCode {
     LOG_ID_IS_NULL("70001"),
 
 
+    ACCOUNT_IS_PRESENCE("50001"),
+
+
 
 
     REGISTER_PASSWORD_MD5_ERROR("MD5");;

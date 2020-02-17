@@ -67,8 +67,8 @@ class FunctionwallApplicationTests {
     @Test
     void testItem() {
         for (int i = 0; i < 20; i++) {
-//            lostFoundSerivce.save("lost:" + UUID.randomUUID().toString().substring(1, 5), "123", "丢", "钱包",
-//                    "123", "http://q5qjjet1i.bkt.clouddn.com/e424766467914ef38534d4da465eca3c.jpeg", "58");
+//            lostFoundSerivce.save("lost:" + UUID.randomUUID().toString().substring(1, 5), "123", 2, "自行车",
+//                    "招领启事", "http://q5qjjet1i.bkt.clouddn.com/e424766467914ef38534d4da465eca3c.jpeg", "58");
         }
     }
 

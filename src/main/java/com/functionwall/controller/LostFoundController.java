@@ -73,11 +73,12 @@ public class LostFoundController {
             e.printStackTrace();
         }
 
-        return new RedirectView(contextPath + "/lost-found/item/all");
+        return new RedirectView(contextPath + "/lost-found/item/1");
     }
 
+
     /**
-     * 分页获取全部 Item
+     * 分页获取对应 Item
      *
      * @param pageNo
      * @param pageSize
@@ -97,36 +98,6 @@ public class LostFoundController {
         return "lost-found";
     }
 
-
-    /**
-     * 分页获取丢失 Item
-     *
-     * @param pageNo
-     * @param pageSize
-     * @param model
-     * @return
-     */
-    @GetMapping(value = "/item/lost")
-    public String queryListForLostItem(@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo,
-                                       @RequestParam(value = "pageSize", defaultValue = "9") Integer pageSize,
-                                       Model model) {
-        return "lost-found";
-    }
-
-    /**
-     * 分页获取捡 Item
-     *
-     * @param pageNo
-     * @param pageSize
-     * @param model
-     * @return
-     */
-    @GetMapping(value = "/item/pick")
-    public String queryListForPickItem(@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo,
-                                       @RequestParam(value = "pageSize", defaultValue = "9") Integer pageSize,
-                                       Model model) {
-        return "lost-found";
-    }
 
     @GetMapping(value = "/item-fullwidth")
     public String lostFoundFullwidth() {
