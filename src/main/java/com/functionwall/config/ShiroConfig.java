@@ -85,7 +85,7 @@ public class ShiroConfig {
         filterMap.put("/topic/complaint-wall", "anon");
         filterMap.put("/campus-activities", "anon");
         filterMap.put("/special-price", "anon");
-        filterMap.put("/lost-found/**", "anon");
+        filterMap.put("/lost-found/item/*", "anon");
 
         filterMap.put("/swagger-ui.html", "anon");
 
