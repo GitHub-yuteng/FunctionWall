@@ -17,20 +17,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig {
 
     @Bean
-    public Docket docketTest(Environment environment) {
-
-        Profiles profiles = Profiles.of("dev");
-        boolean flag = environment.acceptsProfiles(profiles);
-
-        return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(apiInfo())
-                .enable(flag)
-                .groupName("Test")//分组
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.functionwall.controller")).build();
-    }
-
-    @Bean
     public Docket docket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())

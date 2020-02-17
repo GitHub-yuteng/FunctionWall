@@ -67,11 +67,11 @@
                                                         <p class="alert alert-danger" th:if="${msg} != null" th:text="${msg}"></p>
                                                         <input type="text" class="form-control col-md-4 mb20" name="account"
                                                                placeholder="账号" id="account" required
-                                                               data-validation-required-message="请输入您的账号." maxlength="12"/>
+                                                               data-validation-required-message="请输入您的账号." minlength="4" maxlength="12"/>
 
                                                         <input type="password" class="form-control col-md-4 mb20" name="password"
                                                                placeholder="密码" id="password" required
-                                                               data-validation-required-message="请输入您的密码." maxlength="12"/>
+                                                               data-validation-required-message="请输入您的密码." minlength="4" maxlength="12"/>
                                                     </div>
                                                     <input class="btn btn-primary mt30 pull-right" type="submit" name="submit" value="Submit"/>
                                                 </form>

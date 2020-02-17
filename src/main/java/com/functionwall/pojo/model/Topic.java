@@ -20,7 +20,7 @@ public class Topic implements Serializable {
 
     private Long id;
     private String title;//帖子标题
-    private String realnameUser;//用户名字
+    private String username;//用户名字
     private String link;//用户联系方式
     private String content;//帖子内容
     private String imageUrl;//帖子图片

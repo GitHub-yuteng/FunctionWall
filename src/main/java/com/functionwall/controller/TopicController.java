@@ -55,7 +55,7 @@ public class TopicController {
     @PostMapping(value = "/content")
     public View saveTopic(@RequestParam String title,
                           @RequestParam String category,
-                          @RequestParam String realnameUser,
+                          @RequestParam String username,
                           @RequestParam(required = false, defaultValue = "") String link,
                           @RequestParam(required = false, defaultValue = "") MultipartFile image,
                           @RequestParam String content,
@@ -65,7 +65,7 @@ public class TopicController {
 
         try {
             String imageUrl = getQiniuService().saveImage(image);
-            getTopicService().save(title, category, realnameUser, link, imageUrl, content, userId);
+            getTopicService().save(title, category, username, link, imageUrl, content, userId);
         } catch (IOException e) {
             e.printStackTrace();
         }

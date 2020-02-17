@@ -45,12 +45,12 @@ public class TopicServiceImpl implements TopicService {
     }
 
     @Override
-    public void save(String title, String category, String realnameUser, String link, String imageUrl, String content,
+    public void save(String title, String category, String username, String link, String imageUrl, String content,
                      String userId) {
 
         Topic topic = new Topic();
         topic.setTitle(title);
-        topic.setRealnameUser(realnameUser);
+        topic.setUsername(username);
         topic.setLink(link);
         topic.setImageUrl(imageUrl);
         topic.setContent(content);

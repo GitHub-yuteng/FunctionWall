@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface TopicService {
 
-    void save(String title, String category, String realnameUser, String link, String imageUrl, String content,
+    void save(String title, String category, String username, String link, String imageUrl, String content,
               String userId);
 
     PageInfo<Topic> queryListForLoveWallTopic(Integer pageNo, Integer pageSize);
