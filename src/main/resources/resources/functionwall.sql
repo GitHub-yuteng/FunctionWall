@@ -16,7 +16,7 @@ CREATE TABLE `topic_lovewall`
 (
   `id`            BIGINT (20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `title`         VARCHAR(32)   NOT NULL,
-  `realname_user` VARCHAR(16)   NOT NULL,
+  `username` VARCHAR(16)   NOT NULL,
   `link`          VARCHAR(16)  DEFAULT NULL,
   `content`       VARCHAR(1024) NOT NULL,
   `imageUrl`      VARCHAR(256) DEFAULT NULL,
@@ -29,7 +29,7 @@ CREATE TABLE `topic_complaintwall`
 (
   `id`            BIGINT (20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `title`         VARCHAR(32)   NOT NULL,
-  `realname_user` VARCHAR(16)   NOT NULL,
+  `username` VARCHAR(16)   NOT NULL,
   `link`          VARCHAR(16)  DEFAULT NULL,
   `content`       VARCHAR(1024) NOT NULL,
   `imageUrl`      VARCHAR(256) DEFAULT NULL,

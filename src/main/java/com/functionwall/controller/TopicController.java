@@ -88,7 +88,7 @@ public class TopicController {
      * @param model
      */
     @GetMapping(value = "/love-wall")
-    public String queryListForLoveWallTopic(@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo,
+    public String listForLoveWallTopic(@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo,
                                             @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize,
                                             Model model) {
         PageInfo<Topic> pageInfo = getTopicService().queryListForLoveWallTopic(pageNo, pageSize);

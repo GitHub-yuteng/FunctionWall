@@ -24,17 +24,10 @@ import java.util.TimeZone;
 public class TopicServiceImpl implements TopicService {
 
     @Autowired
-    private UserMapper userMapper;
-
-    @Autowired
     private LoveWallMapper loveWallMapper;
 
     @Autowired
     private ComplaintWallMapper complaintWallMapper;
-
-    protected UserMapper getUserMapper() {
-        return userMapper;
-    }
 
     protected LoveWallMapper getLoveWallMapper() {
         return loveWallMapper;
@@ -54,10 +47,7 @@ public class TopicServiceImpl implements TopicService {
         topic.setLink(link);
         topic.setImageUrl(imageUrl);
         topic.setContent(content);
-        System.out.println("-------------------");
-        Date time = new Date();
-        System.out.println(time);
-        topic.setCreatedDate(time);
+        topic.setCreatedDate(new Date());
         topic.setIdUser(Long.parseLong(userId));
 
         if (category.equals(ConstantField.LOVEWALL)) {

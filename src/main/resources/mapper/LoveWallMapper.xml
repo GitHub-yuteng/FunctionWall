@@ -23,4 +23,15 @@
 		created_date
 		DESC
 	</select>
+
+	<select id="listLoveTopicByUserId" resultType="com.functionwall.pojo.model.Topic">
+		SELECT
+		<include refid="selectFields"/>
+		FROM
+		<include refid="tablename"/>
+		WHERE
+		id_user = #{userId}
+	</select>
+
+
 </mapper>

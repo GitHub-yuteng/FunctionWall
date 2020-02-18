@@ -6,4 +6,13 @@
 	<sql id="insertFields">realname_user,link,type,category,content,image_url,created_date,id_user</sql>
 	<sql id="selectFields">id,realname_user,link,type,category,content,image_url,created_date,id_user</sql>
 
+	<select id="listLostFoundItemByUserId" resultType="com.functionwall.pojo.model.Item">
+		SELECT
+		<include refid="selectFields"/>
+		FROM
+		<include refid="tablename"/>
+		WHERE
+		id_user = #{userId}
+	</select>
+
 </mapper>

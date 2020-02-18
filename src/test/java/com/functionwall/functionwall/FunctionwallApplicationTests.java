@@ -1,10 +1,12 @@
 package com.functionwall.functionwall;
 
+import com.functionwall.controller.UserController;
 import com.functionwall.dao.ComplaintWallMapper;
 import com.functionwall.pojo.model.Item;
 import com.functionwall.pojo.model.Topic;
 import com.functionwall.service.LostFoundSerivce;
 import com.functionwall.service.TopicService;
+import com.functionwall.service.UserService;
 import com.github.pagehelper.PageInfo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMailMessage;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.ui.Model;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -30,6 +33,15 @@ class FunctionwallApplicationTests {
 
     @Autowired
     LostFoundSerivce lostFoundSerivce;
+
+    @Autowired
+    UserService userService;
+
+    @Autowired
+    UserController userController;
+
+    @Autowired
+    Model model;
 
     @Test
     void mailSender() {
@@ -78,5 +90,15 @@ class FunctionwallApplicationTests {
 //            List<Item> list = lostFoundSerivce.queryListForAllItem(1, 9);
 //            list.forEach(System.out::println);
         }
+    }
+
+    @Test
+    void testlistLoveTopic() {
+//        List<Topic> list = userService.listComplaintTopicByUserId("9");
+//        list.forEach(System.out::println);
+
+//        List<Item> list = userService.listLostFoundItemByUserId("9");
+//        list.forEach(System.out::println);
+
     }
 }

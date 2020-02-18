@@ -3,23 +3,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.functionwall.dao.UserMapper">
     <sql id="tablename">user</sql>
-    <sql id="insertFields">username
-    ,
-    account,
-    password,
-    realname,
-    level,
-    sex,
-    created_date</sql>
-    <sql id="selectFields">id
-    ,
-    username,
-    account,
-    password,
-    realname,
-    level,
-    sex,
-    created_date</sql>
+    <sql id="insertFields">username,account,password,realname,level,sex,created_date</sql>
+    <sql id="selectFields">id,username,account,password,realname,level,sex,created_date</sql>
 
     <insert id="save" parameterType="com.functionwall.pojo.model.User" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO

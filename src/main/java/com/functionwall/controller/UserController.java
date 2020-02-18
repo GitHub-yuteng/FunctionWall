@@ -1,5 +1,7 @@
 package com.functionwall.controller;
 
+import com.functionwall.pojo.model.Item;
+import com.functionwall.pojo.model.Topic;
 import com.functionwall.pojo.model.User;
 import com.functionwall.pojo.vo.APIResponse;
 import com.functionwall.service.UserService;
@@ -8,7 +10,6 @@ import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
-import org.apache.shiro.web.session.HttpServletSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +18,7 @@ import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * @author Yu
@@ -82,12 +83,35 @@ public class UserController {
         }
     }
 
+
+    /**
+     * 根据用户ID 查询用户发表的所有帖子
+     *
+     * @param userId
+     * @return
+     */
+    @ApiOperation("根据用户ID 查询用户发表的所有帖子")
+    @GetMapping(value = "/list")
+    public String listAllTopicByUserId(@RequestParam String userId,Model model) {
+
+        List<Topic> loveList = getUserService().listLoveTopicByUserId(userId);
+        List<Topic> complaintList = getUserService().listComplaintTopicByUserId(userId);
+        List<Item> itemList = getUserService().listLostFoundItemByUserId(userId);
+
+        model.addAttribute("loveList",loveList);
+        model.addAttribute("complaintList",complaintList);
+        model.addAttribute("itemList",itemList);
+
+        return "my-info";
+    }
+
     /**
      * 发送邮件
      *
      * @param email
      * @return
      */
+    @ApiOperation("发送邮件")
     @PostMapping(value = "/email")
     public String addTopic(@RequestParam String email, @RequestParam String userId,
                            @RequestParam String realname) {

@@ -3,6 +3,7 @@ package com.functionwall.service;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.functionwall.pojo.model.Item;
 import com.github.pagehelper.PageInfo;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
@@ -15,4 +16,5 @@ public interface LostFoundSerivce {
               String userId);
 
     Page<Item> queryListForAllItem(Integer type, Integer pageNo, Integer pageSize);
+
 }
