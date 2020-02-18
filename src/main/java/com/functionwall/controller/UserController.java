@@ -10,6 +10,7 @@ import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
+import org.apache.shiro.web.session.HttpServletSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -83,24 +84,25 @@ public class UserController {
         }
     }
 
-
     /**
      * 根据用户ID 查询用户发表的所有帖子
      *
-     * @param userId
      * @return
      */
     @ApiOperation("根据用户ID 查询用户发表的所有帖子")
     @GetMapping(value = "/list")
-    public String listAllTopicByUserId(@RequestParam String userId,Model model) {
+    public String listAllTopicByUserId(Model model) {
 
-        List<Topic> loveList = getUserService().listLoveTopicByUserId(userId);
-        List<Topic> complaintList = getUserService().listComplaintTopicByUserId(userId);
-        List<Item> itemList = getUserService().listLostFoundItemByUserId(userId);
+        Subject currentUser = SecurityUtils.getSubject();
+        User user = (User) currentUser.getSession().getAttribute("user");
 
-        model.addAttribute("loveList",loveList);
-        model.addAttribute("complaintList",complaintList);
-        model.addAttribute("itemList",itemList);
+        List<Topic> loveList = getUserService().listLoveTopicByUserId(user.getId().toString());
+        List<Topic> complaintList = getUserService().listComplaintTopicByUserId(user.getId().toString());
+        List<Item> itemList = getUserService().listLostFoundItemByUserId(user.getId().toString());
+
+        model.addAttribute("loveList", loveList);
+        model.addAttribute("complaintList", complaintList);
+        model.addAttribute("itemList", itemList);
 
         return "my-info";
     }

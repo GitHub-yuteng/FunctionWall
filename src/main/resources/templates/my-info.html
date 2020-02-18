@@ -45,6 +45,7 @@
                 <div class="row mb60 text-center">
                     <div class="col-sm-12">
                         <h3 class="section-title">My Info</h3>
+                        <p class="section-sub-title">A Warm welcome to you.</p>
                     </div>
                 </div>
             </div>
@@ -151,6 +152,83 @@
             </div>
         </div>
     </section>
+
+    <section class="white-wrapper">
+        <div class="section-inner">
+            <div class="container">
+                <div class="row mb60 text-center">
+                    <div class="col-sm-12">
+                        <p class="section-sub-title">Next You Posted . <span class="caret"></span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row mb60 text-center">
+                    <div class="col-sm-12">
+                        <h3 class="section-title"><a th:href="@{/user/list}">表白贴</a></h3>
+                        <p class="section-sub-title">A Warm welcome to you.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-left" th:each="info : ${loveList}">
+                <div class="media-body">
+                    <div class="well">
+                        <div class="media-heading">
+                            <span class="item-category-span" th:text="${info.title}"></span>
+                            <small class="item-category-span" th:text="${#dates.format(info.createdDate, 'yyyy-MM-dd')}"></small>
+                            <span class="items-center-l" th:text="${info.content}"></span>
+                        </div>
+                        <a class="btn btn-primary pull-right mt30" href="#">Reply</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-inner">
+            <div class="container">
+                <div class="row mb60 text-center">
+                    <div class="col-sm-12">
+                        <h3 class="section-title"><a th:href="@{/user/list}">吐槽贴</a></h3>
+                        <p class="section-sub-title">A Warm welcome to you.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-left" th:each="info : ${complaintList}">
+                <div class="media-body">
+                    <div class="well">
+                        <div class="media-heading">
+                            <span class="item-category-span" th:text="${info.title}"></span>
+                            <small class="item-category-span" th:text="${#dates.format(info.createdDate, 'yyyy-MM-dd')}"></small>
+                            <span class="items-center-l" th:text="${info.content}"></span>
+                        </div>
+                        <a class="btn btn-primary pull-right mt30" href="#">Reply</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-inner">
+            <div class="container">
+                <div class="row mb60 text-center">
+                    <div class="col-sm-12">
+                        <h3 class="section-title"><a th:href="@{/user/list}">失物认领</a></h3>
+                        <p class="section-sub-title">A Warm welcome to you.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-left" th:each="info : ${itemList}">
+                <div class="media-body">
+                    <div class="well">
+                        <div class="media-heading">
+                            <span class="item-category-span" th:text="${info.category}"></span>
+                            <small class="item-category-span" th:text="${#dates.format(info.createdDate, 'yyyy-MM-dd')}"></small>
+                            <span class="items-center-l" th:text="${info.content}"></span>
+                        </div>
+                        <a class="btn btn-primary pull-right mt30" href="#">Reply</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <div th:replace="footer::footer"></div>
 
