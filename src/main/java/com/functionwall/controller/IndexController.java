@@ -17,12 +17,6 @@ public class IndexController {
         return "index";
     }
 
-
-    @GetMapping(value = "/my-info")
-    public String aboutUs() {
-        return "my-info";
-    }
-
     @GetMapping(value = "/special-price")
     public String specialPrice() {
         return "special-price";

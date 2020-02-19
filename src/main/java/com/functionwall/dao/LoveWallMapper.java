@@ -18,4 +18,6 @@ public interface LoveWallMapper extends BaseMapper<Topic> {
     List<Topic> queryListForLoveWallTopics();
 
     List<Topic> listLoveTopicByUserId(@Param("userId") String userId);
+
+    void deleteTopicByLoveTopicIdForUser(@Param("id") Integer id);
 }

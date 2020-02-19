@@ -14,7 +14,14 @@
 		)
 		VALUE (#{title},#{username},#{link},#{imageUrl},#{content},#{createdDate},#{idUser})
 	</insert>
-    <select id="queryListForLoveWallTopics" resultType="com.functionwall.pojo.model.Topic">
+	<delete id="deleteTopicByLoveTopicIdForUser">
+		DELETE
+		FROM
+		<include refid="tablename"/>
+		WHERE
+		id = #{id}
+	</delete>
+	<select id="queryListForLoveWallTopics" resultType="com.functionwall.pojo.model.Topic">
 		SELECT
 		<include refid="selectFields"/>
 		FROM

@@ -9,10 +9,7 @@ import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.RedirectView;
@@ -89,8 +86,8 @@ public class TopicController {
      */
     @GetMapping(value = "/love-wall")
     public String listForLoveWallTopic(@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo,
-                                            @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize,
-                                            Model model) {
+                                       @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize,
+                                       Model model) {
         PageInfo<Topic> pageInfo = getTopicService().queryListForLoveWallTopic(pageNo, pageSize);
         model.addAttribute("loveInfo", pageInfo);
         return "love-wall";
@@ -110,6 +107,20 @@ public class TopicController {
         PageInfo<Topic> pageInfo = getTopicService().queryListForComplaintWallTopic(pageNo, pageSize);
         model.addAttribute("complaintInfo", pageInfo);
         return "complaint-wall";
+    }
+
+    @GetMapping(value = "/loveTopic/{id}")
+    public View deleteTopicByLoveTopicIdForUser(@PathVariable("id") Integer id,HttpServletRequest request) {
+        String contextPath = request.getContextPath();
+        getTopicService().deleteTopicByLoveTopicIdForUser(id);
+        return new RedirectView(contextPath+"/user/info");
+    }
+
+    @GetMapping(value = "/complaintTopic/{id}")
+    public View deleteTopicByComplaintTopicIdForUser(@PathVariable("id") Integer id,HttpServletRequest request) {
+        String contextPath = request.getContextPath();
+        getTopicService().deleteTopicByComplaintTopicIdForUser(id);
+        return new RedirectView(contextPath+"/user/info");
     }
 
 

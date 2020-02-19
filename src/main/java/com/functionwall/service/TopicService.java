@@ -16,4 +16,8 @@ public interface TopicService {
     PageInfo<Topic> queryListForLoveWallTopic(Integer pageNo, Integer pageSize);
 
     PageInfo<Topic> queryListForComplaintWallTopic(Integer pageNo, Integer pageSize);
+
+    void deleteTopicByLoveTopicIdForUser(Integer id);
+
+    void deleteTopicByComplaintTopicIdForUser(Integer id);
 }

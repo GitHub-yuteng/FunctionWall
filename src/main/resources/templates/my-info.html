@@ -31,10 +31,6 @@
 
 <body class="top-navigation pushy-right-side">
 
-<!-- Site Overlay -->
-<div class="site-overlay">
-</div>
-
 <div id="master-wrapper">
 
     <div th:replace="copy::bar"></div>
@@ -158,27 +154,27 @@
             <div class="container">
                 <div class="row mb60 text-center">
                     <div class="col-sm-12">
-                        <p class="section-sub-title">Next You Posted . <span class="caret"></span></p>
+                        <p class="section-sub-title">Next You Posted <span class="caret"></span></p>
                     </div>
                 </div>
             </div>
             <div class="container">
                 <div class="row mb60 text-center">
                     <div class="col-sm-12">
-                        <h3 class="section-title"><a th:href="@{/user/list}">表白贴</a></h3>
+                        <h3 class="section-title"><a th:href="@{/user/info}">表白贴</a></h3>
                         <p class="section-sub-title">Please Click.</p>
                     </div>
                 </div>
             </div>
-            <div class="text-left" th:each="info : ${loveList}">
+            <div class="col-md-6 col-md-offset-3" th:each="info : ${loveList}">
                 <div class="media-body">
                     <div class="well">
                         <div class="media-heading">
-                            <span class="item-category-span" th:text="${info.title}"></span>
-                            <small class="item-category-span" th:text="${#dates.format(info.createdDate, 'yyyy-MM-dd')}"></small>
-                            <span class="items-center-l" th:text="${info.content}"></span>
+                            <span class="section-sub-title" th:text="${info.title}"></span>
+                            <span class="item-category-span pull-right" th:text="${#dates.format(info.createdDate, 'yyyy-MM-dd')}"></span><br/>
+                            <span class="items-center-l" th:text="${info.content}"></span><br/>
                         </div>
-                        <a class="btn btn-primary pull-right mt30" th:href="@{/}">Reply</a>
+                        <a class="btn btn-primary pull-right mt30" th:href="@{'/topic/loveTopic/'+${info.id}}">Detele</a>
                     </div>
                 </div>
             </div>
@@ -187,20 +183,20 @@
             <div class="container">
                 <div class="row mb60 text-center">
                     <div class="col-sm-12">
-                        <h3 class="section-title"><a th:href="@{/user/list}">吐槽贴</a></h3>
+                        <h3 class="section-title"><a th:href="@{/user/info}">吐槽贴</a></h3>
                         <p class="section-sub-title">Please Click.</p>
                     </div>
                 </div>
             </div>
-            <div class="text-left" th:each="info : ${complaintList}">
+            <div class="col-md-6 col-md-offset-3" th:each="info : ${complaintList}">
                 <div class="media-body">
                     <div class="well">
                         <div class="media-heading">
-                            <span class="item-category-span" th:text="${info.title}"></span>
-                            <small class="item-category-span" th:text="${#dates.format(info.createdDate, 'yyyy-MM-dd')}"></small>
-                            <span class="items-center-l" th:text="${info.content}"></span>
+                            <span class="section-sub-title" th:text="${info.title}"></span>
+                            <span class="item-category-span pull-right" th:text="${#dates.format(info.createdDate, 'yyyy-MM-dd')}"></span><br/>
+                            <span class="items-center-l" th:text="${info.content}"></span><br/>
                         </div>
-                        <a class="btn btn-primary pull-right mt30" href="#">Reply</a>
+                        <a class="btn btn-primary pull-right mt30" th:href="@{'/topic/complaintTopic/'+${info.id}}">Detele</a>
                     </div>
                 </div>
             </div>
@@ -209,26 +205,25 @@
             <div class="container">
                 <div class="row mb60 text-center">
                     <div class="col-sm-12">
-                        <h3 class="section-title"><a th:href="@{/user/list}">失物认领</a></h3>
+                        <h3 class="section-title"><a th:href="@{/user/info}">失物认领</a></h3>
                         <p class="section-sub-title">Please Click.</p>
                     </div>
                 </div>
             </div>
-            <div class="text-left" th:each="info : ${itemList}">
+            <div class="col-md-6 col-md-offset-3" th:each="info : ${itemList}">
                 <div class="media-body">
                     <div class="well">
                         <div class="media-heading">
-                            <span class="item-category-span" th:text="${info.category}"></span>
-                            <small class="item-category-span" th:text="${#dates.format(info.createdDate, 'yyyy-MM-dd')}"></small>
-                            <span class="items-center-l" th:text="${info.content}"></span>
+                            <span class="section-sub-title" th:text="${info.category}"></span>
+                            <span class="item-category-span pull-right" th:text="${#dates.format(info.createdDate, 'yyyy-MM-dd')}"></span><br/>
+                            <span class="items-center-l" th:text="${info.content}"></span><br/>
                         </div>
-                        <a class="btn btn-primary pull-right mt30" href="#">Reply</a>
+                        <a class="btn btn-primary pull-right mt30" href="#">Detele</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
 
     <div th:replace="footer::footer"></div>
 

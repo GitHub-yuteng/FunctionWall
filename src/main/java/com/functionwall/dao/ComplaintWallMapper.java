@@ -18,4 +18,6 @@ public interface ComplaintWallMapper extends BaseMapper<Topic> {
     List<Topic> queryListForComplaintWallTopics();
 
     List<Topic> listComplaintTopicByUserId(@Param("userId") String userId);
+
+    void deleteTopicByComplaintTopicIdForUser(@Param("id") Integer id);
 }

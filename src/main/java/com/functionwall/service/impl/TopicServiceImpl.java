@@ -84,4 +84,14 @@ public class TopicServiceImpl implements TopicService {
         PageInfo<Topic> page = new PageInfo<>(complaintWallTopicList);
         return page;
     }
+
+    @Override
+    public void deleteTopicByLoveTopicIdForUser(Integer id) {
+        getLoveWallMapper().deleteTopicByLoveTopicIdForUser(id);
+    }
+
+    @Override
+    public void deleteTopicByComplaintTopicIdForUser(Integer id) {
+        getComplaintWallMapper().deleteTopicByComplaintTopicIdForUser(id);
+    }
 }

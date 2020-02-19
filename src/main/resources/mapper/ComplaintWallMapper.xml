@@ -14,6 +14,13 @@
 		)
 		VALUE (#{title},#{username},#{link},#{imageUrl},#{content},#{createdDate},#{idUser})
 	</insert>
+    <delete id="deleteTopicByComplaintTopicIdForUser">
+		DELETE
+		FROM
+		<include refid="tablename"/>
+		WHERE
+		id = #{id}
+	</delete>
     <select id="queryListForComplaintWallTopics" resultType="com.functionwall.pojo.model.Topic">
 		SELECT
 		<include refid="selectFields"/>

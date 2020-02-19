@@ -10,7 +10,6 @@ import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
-import org.apache.shiro.web.session.HttpServletSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -90,7 +89,7 @@ public class UserController {
      * @return
      */
     @ApiOperation("根据用户ID 查询用户发表的所有帖子")
-    @GetMapping(value = "/list")
+    @GetMapping(value = "/info")
     public String listAllTopicByUserId(Model model) {
 
         Subject currentUser = SecurityUtils.getSubject();

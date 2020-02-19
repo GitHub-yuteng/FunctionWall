@@ -22,7 +22,7 @@
         </div>
         <div class="col-sm-8" th:if="${session.user} != null">
             <ul class="secondary-menu list-inline pull-right">
-                <li><B><a th:href="@{/my-info}" th:text="${session.user.username}"/></B></li>
+                <li><B><a th:href="@{/user/info}" th:text="${session.user.username}"/></B></li>
                 <li><B><a th:href="@{/logout}">注销</a></B></li>
             </ul>
         </div>
@@ -81,7 +81,7 @@
                             <ul class="dropdown-menu">
                                 <li><a th:href="@{/login}" th:if="${session.user} == null">登录</a></li>
                                 <li><a th:href="@{/register}">注册</a></li>
-                                <li><a th:href="@{/my-info}">我的信息</a></li>
+                                <li><a th:href="@{/user/info}">我的信息</a></li>
                                 <li><a th:href="@{/topic/post}">发表帖子</a></li>
                             </ul>
                         </li>
